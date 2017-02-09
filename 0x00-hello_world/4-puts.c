@@ -6,10 +6,8 @@
  * Return: Always 0 (Success)
  */
 
-main()
+int main(void)
 {
-	const char *myString = "\"Programming is like building a multilingual puzzle";
-
-	puts(myString);
-	return (0); 
+	puts("\"Programming is like a multilingual puzzle\n");
+	return (0);
 }
