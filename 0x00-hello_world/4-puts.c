@@ -1,12 +1,15 @@
 #include <stdio.h>
 
+/**
+ * main - Entry point
+ *
+ * Return: Always 0 (Success)
+ */
+
 main()
 {
-	int p;
-
-	p = 0;
 	const char *myString = "\"Programming is like building a multilingual puzzle";
 
 	puts(myString);
-	return p; 
+	return (0); 
 }
