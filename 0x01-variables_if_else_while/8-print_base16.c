@@ -4,8 +4,8 @@
  *
  * Description:
  * This program prints
- * all the lower case characters in
- * reverse, using putchar()
+ * all the single digit hexadecimal
+ * numbers
  *
  */
 
@@ -22,10 +22,10 @@ int main(void)
 	letter = 'a';
 	num = '0';
 
-	for (i = 0; i <= 10; i++)
-		putchar(letter + i);
-	for (i = 0; i <= 6; i++)
+	for (i = 0; i < 10; i++)
 		putchar(num + i);
+	for (i = 0; i < 6; i++)
+		putchar(letter + i);
 	putchar('\n');
 	return (0);
 }
