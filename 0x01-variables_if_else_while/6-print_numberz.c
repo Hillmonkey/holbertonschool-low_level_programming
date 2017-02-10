@@ -10,11 +10,10 @@
  */
 
 /**
-  * main - this is the main function that runs everything
-  * @void: no arguments passed in
-  *
-  * Return: 0
-  */
+ * main - Entry point
+ *
+ * Return: Always 0 (Success)
+ */
 int main(void)
 {
 	int i;
