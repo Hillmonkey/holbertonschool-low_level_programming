@@ -21,7 +21,7 @@ int main(void)
 	int letter;
 	int i;
 
-	letter = '0';
+	letter = 48;
 
 	for (i = 0; i < 10; i++)
 		putchar(letter + i);
