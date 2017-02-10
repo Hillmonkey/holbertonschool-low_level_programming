@@ -27,8 +27,10 @@ int main(void)
 			putchar(i + offset);
 			putchar(j + offset);
 			if (!((i == 9) && (j == 9)))
+			{
 				putchar(',');
-			putchar(' ');
+				putchar(' ');
+			}
 		}
 	}
 	putchar(10);
