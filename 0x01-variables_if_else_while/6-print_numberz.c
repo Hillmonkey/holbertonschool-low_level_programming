@@ -1,4 +1,3 @@
-#include <time.h>
 #include <stdio.h>
 /*
  * 6-print_numberz.c
