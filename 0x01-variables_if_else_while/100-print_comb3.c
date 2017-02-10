@@ -24,12 +24,15 @@ int main(void)
 	{
 		for (j = i; j < 10; j++)
 		{
-			putchar(i + offset);
-			putchar(j + offset);
-			if (!((i == 9) && (j == 9)))
+			if (!(i == j))
 			{
-				putchar(',');
-				putchar(' ');
+				putchar(i + offset);
+				putchar(j + offset);
+				if (!((i == 8) && (j == 9)))
+				{
+					putchar(44);
+					putchar(32);
+				}
 			}
 		}
 	}
