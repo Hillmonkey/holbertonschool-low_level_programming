@@ -30,8 +30,7 @@ int main(void)
 					putchar(i + offset);
 					putchar(j + offset);
 					putchar(k + offset);
-					if (!((i >= 7) && (j == 8) &&\
-								(k >=  9)))
+					if (!((i > 6) && (j > 7) && (k > 8)))
 					{
 						putchar(44);
 						putchar(32);
