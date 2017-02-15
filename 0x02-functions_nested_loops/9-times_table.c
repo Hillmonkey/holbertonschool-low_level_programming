@@ -31,9 +31,9 @@ void times_table(void)
 					_putchar('0' + p % 10);
 				}
 				if (col < 9)
-					_putchar(',')
+					_putchar(',');
 				else
-					_putchar('\n')
+					_putchar('\n');
 
 			}
 		}
