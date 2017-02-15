@@ -1,7 +1,7 @@
 #include "holberton.h"
 
 /**
- * function: print_alphabetx10() prints alphabet times 10
+ * print_alphabetx10 - prints alphabet times 10
  *
  * Return: Always return 0
  */
