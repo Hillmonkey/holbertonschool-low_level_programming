@@ -2,8 +2,8 @@
 #include <stdio.h>
 
 /**
- * times_table - outputs times tables 9x9
- *
+ * print_times_table - outputs times tables 9x9
+ * @n: column and row size (always the same)
  * returns - void
  */
 
@@ -11,30 +11,39 @@ void print_times_table(int n)
 {
 		int row, col, p;
 
-		for (row = 0; row <= n; ++row)
+		if (n <= 15 && n > 0)
 		{
-			_putchar('0');
-			_putchar(',');
-			for (col = 1; col <= n; ++col)
+			for (row = 0; row <= n; ++row)
 			{
-				p = col * row;
-				if (p / 10  == 0)
+				_putchar('0');
+				_putchar(',');
+				for (col = 1; col <= n; ++col)
 				{
+					p = col * row;
 					_putchar(' ');
-					_putchar(' ');
-					_putchar('0' + p);
+					if (p / 100  >= 1)
+					{
+						_putchar('0' + p / 100);
+						_putchar('0' + p / 10 % 10);
+						_putchar('0' + p % 10);
+					}
+					else if (p / 10 >= 1)
+					{
+						_putchar(' ');
+						_putchar('0' + p / 10);
+						_putchar('0' + p % 10);
+					}
+					else
+					{
+						_putchar(' ');
+						_putchar(' ');
+						_putchar('0' + p);
+					}
+					if (col < n)
+						_putchar(',');
+					else
+						_putchar('\n');
 				}
-				else
-				{
-					_putchar(' ');
-					_putchar('0' + p / 10);
-					_putchar('0' + p % 10);
-				}
-				if (col < n)
-					_putchar(',');
-				else
-					_putchar('\n');
-
 			}
 		}
 }
