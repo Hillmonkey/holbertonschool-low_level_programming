@@ -2,7 +2,7 @@
 
 /**
  * main - prints sum of numbers from 1 to 1024 that are divisible by 3 or 5,
- * @void - no arguments 
+ * @void - no arguments
  * Return: void
  */
 
@@ -15,7 +15,7 @@ int main(void)
 	{
 		if (i % 3 == 0 || i % 5 == 0)
 		{
-				sum = sum + i;
+			sum = sum + i;
 		}
 	}
 
