@@ -1,3 +1,3 @@
-*** More functions, more nested loops
+### More functions, more nested loops
 
-*A bunch of scripts to practice application of concepts in C
+#A bunch of scripts to practice application of concepts in C
