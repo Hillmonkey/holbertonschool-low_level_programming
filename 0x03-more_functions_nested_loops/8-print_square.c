@@ -1,7 +1,7 @@
 #include "holberton.h"
 
 /**
- * print_diagonal - print diagonal line using '\' characters
+ * print_square - print diagonal line using '\' characters
  * @n: int value how long (vertically) to make diagonal line
  * Return: void
  */
