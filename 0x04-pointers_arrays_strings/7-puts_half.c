@@ -1,10 +1,10 @@
 #include "holberton.h"
 
 /**
- * _strlen - returns the length of a string
- * @s: pointer to a char (also functions as pointer to
- *    a string, which is an array of chars
- * Return: int representing the len of the string s
+ * puts_half - prints 2nd half of a string
+ * @str: pointer to a char (also functions as pointer to
+ *    a string, which is an array of chars)
+ * Return: void
  */
 void puts_half(char *str)
 {
