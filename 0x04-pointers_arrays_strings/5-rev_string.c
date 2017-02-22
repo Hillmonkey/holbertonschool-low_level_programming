@@ -28,5 +28,6 @@ void rev_string(char *s)
 		*(s + i) = *(s + (len - i));
 		*(s + (len - i)) = tmpC;
 	}
+	*(s + (len + 1)) = '\0';
 	s = tmpP;
 }
