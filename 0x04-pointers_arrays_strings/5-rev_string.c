@@ -30,4 +30,10 @@ void rev_string(char *s)
 	}
 	*(s + (len + 1)) = '\0';
 	s = tmpP;
+	while (*s != 0)
+	{
+		len++;
+		s++;
+	}
+	printf ("%d\n", len);
 }
