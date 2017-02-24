@@ -1,7 +1,7 @@
 #include "holberton.h"
 
 /**
- * is_char - determines if ascii char is a character
+ * is_char_digit - determines if ascii char is a character
  * @c: char to be evaluated
  * Return: char passing boolean state:  0=false, 1=true
  */
@@ -23,7 +23,7 @@ char is_char_digit(char c)
 /**
  * to_upper - if an ascii value is a lower, convert to upper
  * @c: char to be converted to upper, if appropriate
- * Return: a char that has been capitalized, if appropriate
+ * Return: char that has been capitalized, if appropriate
  */
 char to_upper(char c)
 {
