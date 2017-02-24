@@ -1,7 +1,7 @@
 #include "holberton.h"
 
 /**
- * _reverse_array -  accepts array of ints and reverses them in place
+ * reverse_array -  accepts array of ints and reverses them in place
  * @a: pointer to array of ints
  * @n: int representing size of array 'a'
  * Return: nothing
