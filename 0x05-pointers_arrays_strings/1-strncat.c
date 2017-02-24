@@ -1,4 +1,12 @@
 #include "holberton.h"
+/**
+ * _strncat - appends n chars of of a string
+ * @dest: pointer to a string that becomes appended to
+ * @src: pointer to a string that is tacked on to dest
+ * @n: int representing how many chars of src are to be appended
+ * Return: pointer to string which is dest + n chars of src
+ * appended to dest
+ */
 
 char *_strncat(char *dest, char *src, int n)
 {
