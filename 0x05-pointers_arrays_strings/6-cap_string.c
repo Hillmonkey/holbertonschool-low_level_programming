@@ -5,13 +5,15 @@
  * @c: char to be evaluated
  * Return: char passing boolean state:  0=false, 1=true
  */
-char is_char(char c)
+char is_char_digit(char c)
 {
 	int ret;
 
 	if (c >= 65 && c <= 90)
 		ret = 1;
 	else if (c >= 97 && c <= 122)
+		ret = 1;
+	else if (c >= 48 && c <= 57)
 		ret = 1;
 	else
 		ret = 0;
@@ -60,7 +62,7 @@ char *cap_string(char *s)
 	while (s[i] != 0)
 	{
 		/* find start of new word */
-		if (newWord  && is_char(s[i]))
+		if (newWord  && is_char_digit(s[i]))
 		{
 			s[i] = to_upper(s[i]);
 			newWord = 0;
