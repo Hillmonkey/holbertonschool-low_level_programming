@@ -1,5 +1,4 @@
 #include <stdio.h>
-
 int main(void) {
 	char c[] = {1, 2};
 	printf("%ld\n", &c[0]);
