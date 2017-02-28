@@ -1,3 +1,3 @@
-# 0x05. C - more pointers, arrays and strings
+# 0x05. C - more pointers, arrays and strings 
 
-The title says it all.  Im confirming my knowledge of arrays and pointers by re-implementing various low-level C functions such as strcat ..
+Laying on more levels of abstraction.  I'm working with pointers to pointers, multi-dimensional arrays, and learning different sytactical ways to express myself in C!
