@@ -9,7 +9,10 @@
  */
 int main(int argc, char **argv)
 {
-	while(argc--)
+	int i = 1;
+
+	while (--argc)
 		printf("%s\n", *argv++);
-	return(EXIT_SUCCESS);
+		i *= atoi(*argv++);
+	return (EXIT_SUCCESS);
 }
