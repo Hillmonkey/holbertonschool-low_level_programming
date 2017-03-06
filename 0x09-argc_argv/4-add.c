@@ -11,21 +11,24 @@
 int main(int argc, char *argv[])
 {
 	long sum = 0;
-	int i;
+	int i, x;
 	char *endptr;
 
 	if (argc == 1)
 		puts("0");
 	else
 	{
-		for (i = 1; i < argc; i++)
+		for (i = 1, x = 0; i < argc; i++)
 		{
-			sum  += strtol(argv[i], &endptr, 10);
-			if (*endptr != '\0')
+
+			x = strtol(argv[i], &endptr, 10);
+			if (*endptr != '\0' || x <= 0)
 			{
 				puts("Error");
 				return (1);
 			}
+			else
+				sum += x;
 		}
 	}
 	printf("%ld\n", sum);
