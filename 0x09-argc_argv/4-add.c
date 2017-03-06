@@ -15,7 +15,7 @@ int main(int argc, char *argv[])
 	char *endptr;
 
 	if (argc == 1)
-		puts("0");
+		;
 	else
 	{
 		for (i = 1, x = 0; i < argc; i++)
