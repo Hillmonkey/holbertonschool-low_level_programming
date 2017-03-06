@@ -7,9 +7,11 @@
  *        contain arguments passed in
  * Return: 0 for success
  */
-int main(int argc, char __attribute__((unused)) **argv)
+int main(int argc, char __attribute__((unused)) *argv[])
 {
-	while (argc--)
-		printf("%s\n", *argv);
-	return (EXIT_SUCCESS);
+	int i;
+
+	for (i = 0; i < argc; i++)
+		printf("%s\n", argv[i]);
+	return (0);
 }
