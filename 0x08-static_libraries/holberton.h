@@ -1,6 +1,11 @@
-#ifndef _INCL_GUARD
-#define _INCL_GUARD
-int _putchar(char c);
+#ifndef _HOLBERTON_H_
+#define _HOLBERTON_H_
+
+/*
+ * Function prototypes
+ */
+
+ int _putchar(char c);
 int _islower(int c);
 int _isalpha(int c);
 int _abs(int n);
@@ -20,4 +25,5 @@ char *_strchr(char *s, char c);
 unsigned int _strspn(char *s, char *accept);
 char *_strpbrk(char *s, char *accept);
 char *_strstr(char *haystack, char *needle);
-#endif
+
+#endif /* _HOLBERTON_H_ */
