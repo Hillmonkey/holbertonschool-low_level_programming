@@ -42,7 +42,7 @@ char *_strdup(char *str)
 	if (new == NULL || size == 0 || *str == '\0')
 		return (NULL);
 
-	for (i = 0; i < size; i++)
+	for (i = 0; str[i] != 0; i++)
 		new[i] = str[i];
 
 	new[size] = '\0';
