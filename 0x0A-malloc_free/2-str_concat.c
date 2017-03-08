@@ -31,21 +31,21 @@ int _strlen(char *s)
  */
 char *str_concat(char *s1, char *s2)
 {
-	int len1, len2;
+	unsigned int i, len1, len2, newlen;
 	char *new;
 
+	if (s1 == '\0')
+		s1 = "";
+	if (s2 == '\0'	)
+		s2 = "";
 	len1 = _strlen(s1);
 	len2 = _strlen(s2);
 	newlen = len1 + len2;
 	new = malloc((newlen + 1) * sizeof(char));
-	if (new == NULL || newlen == 0)
-		return (NULL);
-	if (len1 != 0)
-		for (i = 0; i < len1; i++)
-			new[i] = s1[i];		
-	if (len2 != 0)
-		for (i = len1; i < newlen; i++)
-			new[i] = s2[i - len1];
+	for (i = 0; s1[i] != '\0'; i++)
+		new[i] = s1[i];		
+	for (i = 0; s2[i] != '\0'; i++)
+		new[len1 + i] = s2[i];
 	new[newlen] = '\0';
 	return new;
 }
