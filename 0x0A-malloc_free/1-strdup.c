@@ -38,10 +38,6 @@ char *_strdup(char *str)
 
 	size = _strlen(str) + 1;
 	new = malloc(size * sizeof(char));
-	/**
-	if (new == NULL ||  *str == '\0')
-		return (NULL);
-	**/
 	for (i = 0; str[i] != 0; i++)
 		new[i] = str[i];
 
