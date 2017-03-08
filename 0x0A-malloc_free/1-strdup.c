@@ -37,11 +37,11 @@ char *_strdup(char *str)
 		return (NULL);
 
 	size = _strlen(str) + 1;
-	new = malloc(size * sizeof(*str));
-
+	new = malloc(size * sizeof(char));
+	/**
 	if (new == NULL ||  *str == '\0')
 		return (NULL);
-
+	**/
 	for (i = 0; str[i] != 0; i++)
 		new[i] = str[i];
 
