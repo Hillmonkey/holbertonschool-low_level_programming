@@ -26,7 +26,7 @@ int _strlen(char *s)
  * str_concat - concatenates two string
  * @s1: first string to be concatenated NULL is considered to be empty string`
  * @s2: second string to be concatenated
- * Returns - newly allocated memory with concatenated string
+ * Return: newly allocated memory with concatenated string
  *           NULL is returned on failure
  */
 char *str_concat(char *s1, char *s2)
@@ -36,16 +36,16 @@ char *str_concat(char *s1, char *s2)
 
 	if (s1 == '\0')
 		s1 = "";
-	if (s2 == '\0'	)
+	if (s2 == '\0')
 		s2 = "";
 	len1 = _strlen(s1);
 	len2 = _strlen(s2);
 	newlen = len1 + len2;
 	new = malloc((newlen + 1) * sizeof(char));
 	for (i = 0; s1[i] != '\0'; i++)
-		new[i] = s1[i];		
+		new[i] = s1[i];
 	for (i = 0; s2[i] != '\0'; i++)
 		new[len1 + i] = s2[i];
 	new[newlen] = '\0';
-	return new;
+	return (new);
 }
