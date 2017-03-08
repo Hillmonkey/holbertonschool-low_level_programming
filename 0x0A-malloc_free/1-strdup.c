@@ -34,10 +34,11 @@ char *_strdup(char *str)
 	unsigned int i, size;
 
 	size = _strlen(str);
-	new = malloc(size * sizeof(char));
+	new = malloc((size + 1) * sizeof(char));
 	if (new == NULL || size == 0 || *str == '\0')
 		return (NULL);
 	for (i = 0; i < size; i++)
 		new[i] = str[i];
+	new[size] = '\0';
 	return (new);
 }
