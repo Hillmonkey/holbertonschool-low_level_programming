@@ -1,8 +1,8 @@
 #include "holberton.h"
 #include <stdlib.h>
 
-/*
- * malloc_checked - allocate memory using malloc
+/**
+ * malloc_checked - allocate memory
  * @b: pointer to unsigned int
  * return - pointer to allocated memory or 98 if malloci is unsuccessful
  */
