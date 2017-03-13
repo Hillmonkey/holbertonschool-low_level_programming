@@ -1,12 +1,13 @@
 #include <stdio.h>
 
 /**
- * 
- *
- *
+ * main - uses standard preprocessor variable to print file name of original
+ *        source file
+ * Return: void
  **/
 
-void main()
+int main(void)
 {
-	printf("%s", __FILE__);
+	printf("%s\n", __FILE__);
+	return (0);
 }
