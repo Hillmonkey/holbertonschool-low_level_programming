@@ -1,10 +1,10 @@
 #include "dog.h"
-#include <stdlib.h>
 #include <stdio.h>
 
 /**
  * print_dog - prints struct dog!!!
  * @d: pointer to an instance of dog struct
+ * Return: void
  **/
 
 void print_dog(struct dog *d)
@@ -18,7 +18,7 @@ void print_dog(struct dog *d)
 	else
 		puts("(nil)");
 
-	printf("Age : %.6f\n", d->age);
+	printf("Age: %.6f\n", d->age);
 
 	printf("Owner: ");
 	if (d->name != NULL)
