@@ -4,7 +4,7 @@
 
 /**
  * print_dog - prints struct dog!!!
- *
+ * @d: pointer to an instance of dog struct
  *
  **/
 
