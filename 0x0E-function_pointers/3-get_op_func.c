@@ -22,8 +22,14 @@ int (*get_op_func(char *s))(int, int)
 	while (i < 6)
 	{
 		if ((strcmp((ops[i].op), s)) == 0)
-			return (ops[i].f);
-			i++;
+			if (i != 5)
+				return (ops[i].f);
+			if (i == 5)
+			{
+				puts("Error");
+				exit(99);
+			}
+		i++;
 	}
 	return (NULL);
-
+}
