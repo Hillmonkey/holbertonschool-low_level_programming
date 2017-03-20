@@ -36,7 +36,11 @@ void op_f(va_list ap)
  **/
 void op_s(va_list ap)
 {
-	printf("%s", va_arg(ap, char*));
+	char *s;
+	s = va_arg(ap, char*);
+	if (s == NULL)
+		s = "(nil)";
+	printf("%s",s);
 }
 
 
