@@ -49,6 +49,7 @@ void print_all(const char * const format, ...)
 {
 	va_list ap;
 	int i = 0, j = 0;
+	char *sep  = ", ";
 	pa p_all[] = {
 		{"c", op_c},
 		{"i", op_i},
@@ -56,6 +57,7 @@ void print_all(const char * const format, ...)
 		{"s", op_s},
 		{NULL, NULL}
 	};
+	int len = strlen(format);
 
 	va_start(ap, format); /* format == "ceis" */
 	while (format[i] != '\0')
@@ -64,8 +66,11 @@ void print_all(const char * const format, ...)
 		while (p_all[j].fmt != NULL)
 		{
 			if(format[i] == p_all[j].fmt[0]) /* test for multi-char?? */
-			/* if ((strcmp(p_all[j].fmt, &format[i])) == 0) */
+			{
 				p_all[j].f(ap);
+				if ( i < len -1)
+					printf("%s", sep);
+			}
 			j++;
 		}
 		i++;
