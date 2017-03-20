@@ -4,39 +4,36 @@
 
 /**
  * op_c - prints a char ...
- * @myChar - a single char to be printed
- * Return: A string (of len 1 in this case)
+ * @ap: variable length list of parameters with mysterious internal index
  **/
-void op_c (va_list ap)
+void op_c(va_list ap)
 {
 	printf("%c", va_arg(ap, int));
 }
 
 /**
  * op_i - prints string representation of an int
- * @myInt - int passed in as type int
- * Return: A string representation of an int
+ * @ap: variable length list of parameters with mysterious internal index
  **/
-void op_i (va_list ap)
+void op_i(va_list ap)
 {
 	printf("%d", va_arg(ap, int));
 }
 
 /**
  * op_f - prints a string representation of a float
- * @myFloat
+ * @ap: variable length list of parameters with mysterious internal index
  **/
-void op_f (va_list ap)
+void op_f(va_list ap)
 {
-	printf("%f", var_arg(ap,double));
+	printf("%f", var_arg(ap, double));
 }
 
 /**
  * op_s - prints a string
- * @myString - string passed in
- * Return: A string, no bonus line feed, I think.
+ * @ap: variable length list of parameters with mysterious internal index
  **/
-void op_s (va_list ap)
+void op_s(va_list ap)
 {
 	printf("%s", va_arg(ap, char*));
 }
@@ -58,7 +55,7 @@ void print_all(const char * const format, ...)
 		{"s", op_s},
 		{NULL, NULL}
 	};
-	
+
 	va_start(ap, format); /* format == "ceis" */
 	while (format[i] != NULL)
 	{
@@ -67,8 +64,8 @@ void print_all(const char * const format, ...)
 		{
 			if ((strcmp(p_all[j], format[i])) == 0)
 				/* call the function */
-				p_all[j].f(va_arg(ap, 
-				/* when you get to the function, cast back to type you want */
+				p_all[j].f(va_arg(ap, ...) /* fix this line !!! */
+			/* when you get to the function, cast back to type you want */
 		}
 
 	}
