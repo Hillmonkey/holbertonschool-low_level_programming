@@ -1,6 +1,7 @@
 #include "variadic_functions.h"
 #include <stdio.h>
 #include <stdarg.h>
+#include <string.h>
 
 /**
  * op_c - prints a char ...
@@ -26,7 +27,7 @@ void op_i(va_list ap)
  **/
 void op_f(va_list ap)
 {
-	printf("%f", var_arg(ap, double));
+	printf("%f", va_arg(ap, double));
 }
 
 /**
@@ -57,14 +58,14 @@ void print_all(const char * const format, ...)
 	};
 
 	va_start(ap, format); /* format == "ceis" */
-	while (format[i] != NULL)
+	while (format[i] != '\0')
 	{
 		j = 0;
 		while (p_all[j].fmt != NULL)
 		{
-			if ((strcmp(p_all[j], format[i])) == 0)
+			if ((strcmp(p_all[j].fmt, &format[i])) == 0)
 				/* call the function */
-				p_all[j].f(va_arg(ap, ...) /* fix this line !!! */
+				p_all[j].f(va_arg(ap, ...); /* fix this line !!! */
 			/* when you get to the function, cast back to type you want */
 		}
 
