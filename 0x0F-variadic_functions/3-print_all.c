@@ -61,7 +61,7 @@ void print_all(const char * const format, ...)
 
 	/* format == "ceis" in example main code */
 	va_start(ap, format); /* format == "ceis" */
-	while (format[i] != '\0')
+	while (format && format[i] != '\0')
 	{
 		j = 0;
 		while (p_all[j].fmt != NULL)
