@@ -7,7 +7,7 @@
  * @myChar - a single char to be printed
  * Return: A string (of len 1 in this case)
  **/
-char * op_c (char myChar)
+void op_c (char myChar)
 {
 	printf("%c", myChar);
 }
@@ -17,7 +17,7 @@ char * op_c (char myChar)
  * @myInt - int passed in as type int
  * Return: A string representation of an int
  **/
-char * op_i (int myInt)
+void op_i (int myInt)
 {
 	printf("%d", myInt);
 }
@@ -26,7 +26,7 @@ char * op_i (int myInt)
  * op_f - prints a string representation of a float
  * @myFloat
  **/
-char * op_f (float myFloat)
+void op_f (float myFloat)
 {
 	printf("%f", myFloat);
 }
@@ -36,7 +36,7 @@ char * op_f (float myFloat)
  * @myString - string passed in
  * Return: A string, no bonus line feed, I think.
  **/
-char * op_s (char *myString)
+void op_s (char *myString)
 {
 	printf("%s", myString);
 }
