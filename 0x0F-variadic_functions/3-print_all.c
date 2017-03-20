@@ -63,12 +63,12 @@ void print_all(const char * const format, ...)
 		j = 0;
 		while (p_all[j].fmt != NULL)
 		{
-			if ((strcmp(p_all[j].fmt, &format[i])) == 0)
-				/* call the function */
-				p_all[j].f(va_arg(ap, ...); /* fix this line !!! */
-			/* when you get to the function, cast back to type you want */
+			if(format[i] == p_all[j].fmt[0]) /* test for multi-char?? */
+			/* if ((strcmp(p_all[j].fmt, &format[i])) == 0) */
+				p_all[j].f(ap);
+			j++;
 		}
-
+		i++;
 	}
 	printf("\n");
 	va_end(ap);
