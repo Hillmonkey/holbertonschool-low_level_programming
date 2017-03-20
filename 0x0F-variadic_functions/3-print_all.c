@@ -59,15 +59,15 @@ void print_all(const char * const format, ...)
 		{NULL, NULL}
 	};
 	
-	va_start(ap, format);
+	va_start(ap, format); /* format == "ceis" */
 	while (format[i] != NULL)
 	{
+		j = 0;
 		while (p_all[j].fmt != NULL)
 		{
 			if ((strcmp(p_all[j], format[i])) == 0)
-				/* there is a match, cast from pointer to some other thing to pointer */
-				/* to pointer to void ... */
 				/* call the function */
+				p_all[j].f(va_arg(ap, 
 				/* when you get to the function, cast back to type you want */
 		}
 
@@ -75,8 +75,3 @@ void print_all(const char * const format, ...)
 	printf("\n");
 	va_end(ap);
 }
-
-/**
-	todo: make a bunch of functions, like the ones in 3-op_functions
-
-**/
