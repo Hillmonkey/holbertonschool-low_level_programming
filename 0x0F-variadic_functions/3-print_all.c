@@ -36,7 +36,12 @@ void op_f(va_list ap)
  **/
 void op_s(va_list ap)
 {
-	printf("%s", va_arg(ap, char*));
+	char *s;
+
+	s = va_arg(ap, char*);
+	if (s == NULL)
+		s = "(nil)";
+	printf("%s", s);
 }
 
 
@@ -48,7 +53,9 @@ void op_s(va_list ap)
 void print_all(const char * const format, ...)
 {
 	va_list ap;
+	/* char *my_format = (char *)format; */
 	int i = 0, j = 0;
+	char *sep  = "";
 	pa p_all[] = {
 		{"c", op_c},
 		{"i", op_i},
@@ -57,18 +64,22 @@ void print_all(const char * const format, ...)
 		{NULL, NULL}
 	};
 
+	/* format == "ceis" in example main code */
 	va_start(ap, format); /* format == "ceis" */
-	while (format[i] != '\0')
+	while (format && format[i] != '\0')
 	{
 		j = 0;
 		while (p_all[j].fmt != NULL)
 		{
-			if ((strcmp(p_all[j].fmt, &format[i])) == 0)
-				/* call the function */
-				p_all[j].f(va_arg(ap, ...); /* fix this line !!! */
-			/* when you get to the function, cast back to type you want */
+			if (format[i] == p_all[j].fmt[0])
+			{
+				printf("%s", sep);
+				p_all[j].f(ap);
+				sep = ", ";
+			}
+			j++;
 		}
-
+		i++;
 	}
 	printf("\n");
 	va_end(ap);
