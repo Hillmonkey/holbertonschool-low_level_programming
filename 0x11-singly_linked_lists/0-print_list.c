@@ -1,5 +1,5 @@
+#include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 #include "lists.h"
 
 /**
@@ -10,20 +10,12 @@
 
 size_t print_list(const list_t *h)
 {
-	list_t *current;
-	unsigned int counter;
-	char *tmp;
+	size_t i = 0;
 
-	current = h;
-	while (current->next != NULL)
+	for (i = 0; h!= NULL; i++)
 	{
-		tmp = current->str;
-		if (tmp == NULL)
-			tmp = "(null)";
-		printf("[%d] %s\n", current->len, tmp);
-		counter++;
-		current = current->next;
-	{
-	printf("-> %ud elements\n", counter);
-	return (counter);
+		printf("[%u] %s\n", h->len, h->str);
+		h = h->next;
+	}
+	return (i);
 }
