@@ -3,7 +3,7 @@
 
 /**
  * listint_len - returns number of nodes in a linked list
- * h: pointer to head of linked list
+ * @h: pointer to head of linked list
  * Return: number of nodes
  **/
 

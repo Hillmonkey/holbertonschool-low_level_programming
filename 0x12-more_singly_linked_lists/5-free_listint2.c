@@ -12,11 +12,10 @@ void r_free_list(listint_t *ptr)
 	if (ptr->next != NULL)
 		r_free_list(ptr->next);
 	free(ptr);
-	return;
 }
 
 /**
- * free_listint(listint_t *head)
+ * free_listint2 - helper file for r_free_list - which frees memory recursively
  * @head: pointer to head of linked list
  **/
 void free_listint2(listint_t **head)
@@ -28,5 +27,4 @@ void free_listint2(listint_t **head)
 	tmp = *head;
 	r_free_list(tmp);
 	*head = NULL;
-	return;
 }

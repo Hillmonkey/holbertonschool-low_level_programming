@@ -3,7 +3,7 @@
 
 /**
  * print_listint - print the number of nodes
- * h: pointer to head of linked list
+ * @h: pointer to head of linked list
  * Return: number of nodes
  **/
 

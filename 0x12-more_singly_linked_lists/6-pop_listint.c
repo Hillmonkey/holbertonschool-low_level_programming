@@ -4,7 +4,7 @@
 
 /**
  * pop_listint - pops first element from a list
- * head: pointer to a pointer to the head of the list
+ * @head: pointer to a pointer to the head of the list
  * Return: the integer contents of the old head of the list
  **/
 int pop_listint(listint_t **head)
