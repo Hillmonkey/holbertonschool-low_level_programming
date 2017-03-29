@@ -42,11 +42,8 @@ listint_t *join(listint_t *h1, listint_t *h2)
 	while (tmp->next)
 	{
 		tmp = tmp->next;
-		printf("%p\n", (void *)tmp);
 	}
 	tmp->next = h2;
-	printf("%p\n", (void *)h2);
-	printf("%p\n", (void *)h1);
 	return (h1);
 }
 
