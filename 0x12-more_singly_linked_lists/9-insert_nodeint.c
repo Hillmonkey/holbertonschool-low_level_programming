@@ -47,13 +47,13 @@ listint_t *join(listint_t *h1, listint_t *h2)
 	return (h1);
 }
 /**
- * add_nodeint_end - add new node at end of a listint_t list
+ * my_add_nodeint_end - add new node at end of a listint_t list
  * @head: pointer to a pointer to a head list node
  * @n: int value to store in a new node
  * Return: address of new element, or NULL if it failed
  **/
 
-listint_t *add_nodeint_end(listint_t **head, const int n)
+listint_t *my_add_nodeint_end(listint_t **head, const int n)
 {
 	listint_t *new, *tmp;
 
@@ -94,7 +94,7 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 	if (idx == 0)
 	{
 		/* insert at beginning */
-		success = add_nodeint_end(head, idx);
+		success = my_add_nodeint_end(head, idx);
 		if (success)
 			return (*head);
 		else
@@ -108,13 +108,13 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 	/* if idx = size_of_list THEN insert at tail */
 	if (idx == i)
 	{
-		*head = add_nodeint_end(head, n);
+		*head = my_add_nodeint_end(head, n);
 		return (*head);
 	}
 	/* break_in_two */
 	head2 = split(*head, idx);
 	/* insert at tail of head */
-	new = add_nodeint_end(head, n);
+	new = my_add_nodeint_end(head, n);
 	/*join (list1, list2) */
 	*head = join(*head, head2);
 	return (new);
