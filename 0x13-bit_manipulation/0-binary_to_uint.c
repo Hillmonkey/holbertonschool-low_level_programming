@@ -1,18 +1,29 @@
-#include header
-#include this-that-other
+#include "holberton.h"
+#include <string.h>
+#include <stdlib.h>
 
-unsigned int binary_to_uint(const char *b);
+/**
+ * binary_to_uint - convert binary string to unsigned int
+ * @b: constant char string representing binary number
+ * Return: unsigned int, result of conversion
+ **/
+unsigned int binary_to_uint(const char *b)
 {
-	unsigned int sum =0, i =0;
+	unsigned int sum = 0, i = 0;
 	unsigned int power = 1;
-	len = strlen(b);
+	unsigned int len = 0;
+	unsigned int atoi;
 
-	for(i = len-1; i >= 0; i--)
+	while (b[len] != '\0')
+		len++;
+
+	for (i = len; i > 0; i--)
 	{
-		if (!(b[i] == '0' || b[i] == '1'))
-			return (NULL);
-		sum += atoi(str[i] * power;
-		power *= 2:
+		if (!(b[i - 1] == '0' || b[i - 1] == '1'))
+			return (0);
+		atoi = b[i - 1] - '0';
+		sum += atoi * power;
+		power *= 2;
 	}
-	return (sum)
+	return (sum);
 }
