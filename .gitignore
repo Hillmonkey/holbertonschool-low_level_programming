@@ -2,3 +2,10 @@
 *.bin
 *BETTY*
 *TEMPLATE*
+*test*
+my.*
+*larry*
+*LARRY*
+*TEST*
+*main.c
+*Error*
