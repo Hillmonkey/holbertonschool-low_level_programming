@@ -2,7 +2,7 @@
 
 # Introductory C programming
 
-** Learning to code with [Larry Madeo](https://twitter.com/larmalade) **
+## Learning to code with [Larry Madeo](https://twitter.com/larmalade)
 
 [Holberton School](https://www.holbertonschool.com) assignment solutions - February, 2017
 
