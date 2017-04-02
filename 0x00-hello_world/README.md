@@ -1,6 +1,12 @@
-OxOO C - Hello, World
+<img src="https://www.holbertonschool.com/assets/holberton-logo-1cc451260ca3cd297def53f2250a9794810667c7ca7b5fa5879a569a457bf16f.png" alt="Holberton logo">
 
-List of Scripts:
+# Introductory C programming
+
+** Learning to code with [Larry Madeo](https://twitter.com/larmalade) **
+
+[Holberton School](https://www.holbertonschool.com) assignment solutions - February, 2017
+
+*List of Scripts:*
 
 0. Preprocessor: This script saves to a file the preprocessor output of gcc
 
