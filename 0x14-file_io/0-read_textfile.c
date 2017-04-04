@@ -10,8 +10,8 @@ ssize_t read_textfile(const char *filename, size_t letters)
 {
 	int fd;
 	ssize_t n = 0;
-	ssize_t n2 __attribute__((unused));
 	char *buf;
+	ssize_t tmp;
 
 	fd = open(filename, O_RDONLY);
 
@@ -21,10 +21,12 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	if (!buf)
 		return (0);
 	n = read(fd, buf, letters);
+	tmp = n;
+
 	buf[letters] = '\0';
 
 	/* printf("%s", buf); */
-	n2 = write(STDOUT_FILENO, buf, letters);
+	n = write(STDOUT_FILENO, buf, letters);
 	/* free(buf); */
-	return (n);
+	return (tmp);
 }
