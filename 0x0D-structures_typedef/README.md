@@ -1,3 +1,7 @@
-#0x0D - Structures, typedef
+# 0x0D C - Structures, typedef
+
+### Learning to code with [Larry Madeo](https://twitter.com/larmalade)
+
+### [Holberton School](https://www.holbertonschool.com) assignment solutions - February, 2017
 
 A collection of scripts to aid my learning process regarding structures and typedefs in C
