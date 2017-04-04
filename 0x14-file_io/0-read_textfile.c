@@ -27,8 +27,8 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	n = read(fd, buf, letters);
 	buf[letters] = '\0';
 
-	/* printf("%s", buf); */
-	n2 = write(STDOUT_FILENO, buf, letters);
+	printf("%s", buf); 
+	/* n2 = write(STDOUT_FILENO, buf, letters); */
 	free(buf);
 	return (n);
 }
