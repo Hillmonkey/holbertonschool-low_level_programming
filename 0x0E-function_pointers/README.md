@@ -1,3 +1,7 @@
-#Function Pointer in C
+# 0x0E: Function Pointers in C
 
-A bunch of scripts to help me find my way around function pointers in C
+### Learning to code with [Larry Madeo](https://twitter.com/larmalade)
+
+### [Holberton School](https://www.holbertonschool.com) assignment solutions - February, 2017
+
+Pointers to functions.  Ooh la la!

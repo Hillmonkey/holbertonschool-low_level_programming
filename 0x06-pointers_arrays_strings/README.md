@@ -1,3 +1,7 @@
-# 0x05. C - more pointers, arrays and strings 
+# 0x06. C - even more pointers, arrays and strings 
 
-Laying on more levels of abstraction.  I'm working with pointers to pointers, multi-dimensional arrays, and learning different sytactical ways to express myself in C!
+### Learning to code with [Larry Madeo](https://twitter.com/larmalade)
+
+### [Holberton School](https://www.holbertonschool.com) assignment solutions - February, 2017
+
+Laying on more levels of abstraction. Working with pointers to pointers& multi-dimensional arrays.

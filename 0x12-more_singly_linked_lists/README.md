@@ -1,3 +1,7 @@
-# Yet more linked lists, implemented in C
+# 0x12. C - More Singly Linked Listsd
 
-Various utility functions created for pedagogic purposes!
+### Learning to code with [Larry Madeo](https://twitter.com/larmalade)
+
+### [Holberton School](https://www.holbertonschool.com) assignment solutions - February, 2017
+
+Exercises to explore use and implementation of linked lists

@@ -1,3 +1,5 @@
-### 0x04. C - pointers, arrays and strings
+# 0x04. C - pointers, arrays and strings
 
-A bunch of short C programs to help me extend my knowledge of C!  #cisfun
+### Learning to code with [Larry Madeo](https://twitter.com/larmalade)
+
+### [Holberton School](https://www.holbertonschool.com) assignment solutions - February, 2017

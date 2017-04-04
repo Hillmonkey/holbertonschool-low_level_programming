@@ -1,3 +1,7 @@
-## C - functions, nested loops
+# Basics of C - Functions & Nested Loops
 
-Contains various projects to increase my understanding, especially the nitty gritty of Header files and function prototypes
+### Learning to code with [Larry Madeo](https://twitter.com/larmalade)
+
+### [Holberton School](https://www.holbertonschool.com) assignment solutions - February, 2017
+
+
