@@ -21,12 +21,16 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	if (!buf)
 		return (0);
 	n = read(fd, buf, letters);
+	if (n == -1)
+		return (0);
 	tmp = n;
 
 	buf[letters] = '\0';
 
 	/* printf("%s", buf); */
 	n = write(STDOUT_FILENO, buf, letters);
+	if (n == -1)
+		return (0);
 	/* free(buf); */
 	return (tmp);
 }
