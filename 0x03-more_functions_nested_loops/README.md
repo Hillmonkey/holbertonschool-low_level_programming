@@ -1,3 +1,5 @@
-### More functions, more nested loops
+# Basics of C - More Functions, More Nested Loops
 
-#A bunch of scripts to practice application of concepts in C
+### Learning to code with [Larry Madeo](https://twitter.com/larmalade)
+
+### [Holberton School](https://www.holbertonschool.com) assignment solutions - February, 2017
