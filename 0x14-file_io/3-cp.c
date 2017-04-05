@@ -15,9 +15,9 @@
 int main(int ac, char **av)
 {
 	char buf[BUF_SIZE];
-	ssize_t ret1 = 0, ret2 = 0;
-	ssize_t fd1; /* file descriptor for file_from */
-	ssize_t fd2; /* file descriptor for file_to */
+	int ret1 = 1, ret2 = 0;
+	int fd1; /* file descriptor for file_from */
+	int fd2; /* file descriptor for file_to */
 
 	if (ac != 3)
 		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n"), exit(97);
@@ -27,18 +27,18 @@ int main(int ac, char **av)
 	fd2 = (open(av[2], O_WRONLY | O_CREAT | O_TRUNC, 0664));
 	if (av[1] == NULL || av[1][0] == '\0' || fd2 < 0)
 		dprintf(STDERR_FILENO, "Error; Can't write to %s\n", av[2]), exit(99);
-		return (99);
-
-	/* assume that everything fits in one buffer */
-	ret1 = read(fd1, buf, BUF_SIZE);
-	if (ret1 < 0)
-		dprintf(STDERR_FILENO, "Can't read from file %s\n", av[1]), exit(98);
-	ret2 = write(fd2, buf, ret1);
-	if (ret2 < 0)
-		dprintf(STDERR_FILENO, "Error; Can't write to %s\n", av[2]), exit(99);
-	if (close(fd1 < 0))
-		dprintf(STDERR_FILENO, "Error: Can't close fd %ld\n", (long)fd1), exit(100);
-	if (close(fd2 < 0))
-		dprintf(STDERR_FILENO, "Error: Can't close fd %ld\n", (long)fd2), exit(100);
+	while (ret1)
+	{
+		ret1 = read(fd1, buf, BUF_SIZE);
+		if (ret1 < 0)
+			dprintf(STDERR_FILENO, "Can't read from file %s\n", av[1]), exit(98);
+		ret2 = write(fd2, buf, ret1);
+		if (ret2 < 0)
+			dprintf(STDERR_FILENO, "Error; Can't write to %s\n", av[2]), exit(99);
+	}
+	if (close(fd1) < 0)
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd1), exit(100);
+	if (close(fd2) < 0)
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd2), exit(100);
 	return (0);
 }
