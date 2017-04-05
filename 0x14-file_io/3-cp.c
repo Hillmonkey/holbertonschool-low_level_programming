@@ -7,12 +7,12 @@
 #include "holberton.h"
 
 /**
- * cp - copy file_from to file_t
+ * main - copies file_from to file_t
  * @ac: number of arguments passed, incuding name of program, 0-indexed
  * @av: array of strings containing arguments passed in
- * Return: between 97 and 100 represent varioius errors,
+ * Return: between 97 and 100 represent varioius errors 0 = success
  **/
-int cp(int ac, char **av)
+int main(int ac, char **av)
 {
 	char buf[BUF_SIZE];
 	ssize_t ret1 = 0, ret2 = 0;
