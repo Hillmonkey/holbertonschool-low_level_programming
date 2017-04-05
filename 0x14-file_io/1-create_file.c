@@ -18,7 +18,7 @@ int create_file(const char *filename, char *text_content)
 	ssize_t fd;
 	ssize_t n;
 
-	if (filename == NULL || *filename == '\0')
+	if (text_content = NULL || *text_content == '\0')
 		return (-1);
 	for (len = 0; text_content[len] != '\0'; len++)
 		;
