@@ -22,23 +22,23 @@ int main(int ac, char **av)
 	if (ac != 3)
 		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n"), exit(97);
 	fd1 = open(av[1], O_RDONLY);
-	if (av[1] == NULL || av[1][0] == '\0' || fd1 < 0)
+	if (fd1 == -1)
 		dprintf(STDERR_FILENO, "Can't read from file %s", av[1]), exit(98);
 	fd2 = (open(av[2], O_WRONLY | O_CREAT | O_TRUNC, 0664));
-	if (av[1] == NULL || av[1][0] == '\0' || fd2 < 0)
+	if (fd2 == -1)
 		dprintf(STDERR_FILENO, "Error; Can't write to %s\n", av[2]), exit(99);
 	while (ret1)
 	{
 		ret1 = read(fd1, buf, BUF_SIZE);
-		if (ret1 < 0)
+		if (ret1 == -1)
 			dprintf(STDERR_FILENO, "Can't read from file %s\n", av[1]), exit(98);
 		ret2 = write(fd2, buf, ret1);
-		if (ret2 < 0)
+		if (ret2 == -1)
 			dprintf(STDERR_FILENO, "Error; Can't write to %s\n", av[2]), exit(99);
 	}
-	if (close(fd1) < 0)
+	if (close(fd1) == -1)
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd1), exit(100);
-	if (close(fd2) < 0)
+	if (close(fd2) == -1)
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd2), exit(100);
 	return (0);
 }
