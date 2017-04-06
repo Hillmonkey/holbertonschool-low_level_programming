@@ -6,6 +6,13 @@
 #include <unistd.h>
 #include "holberton.h"
 
+/**
+ * read_textfile - output contents of text file to STDOUT
+ * @filename: string name of file (tested in CWD)
+ * @letters: length of file in chars
+ * Return: actual number of chars printed
+ **/
+
 ssize_t read_textfile(const char *filename, size_t letters)
 {
 	ssize_t fd;
