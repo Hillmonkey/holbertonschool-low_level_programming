@@ -20,10 +20,10 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	char *buf;
 	ssize_t tmp;
 
-	fd = open(filename, O_RDONLY);
-
 	if (fd == -1 || !filename)
 		return (0);
+	fd = open(filename, O_RDONLY);
+
 	buf = malloc(sizeof(char) * (letters + 1));
 	if (!buf)
 		return (0);
@@ -32,14 +32,14 @@ ssize_t read_textfile(const char *filename, size_t letters)
 		return (0);
 	tmp = n;
 
-	buf[letters] = '\0';
+	buf[n] = '\0';
 
 	/* printf("%s", buf); */
-	n = write(STDOUT_FILENO, buf, letters + 1);
+	n = write(STDOUT_FILENO, buf, n + 1);
 	if (n == -1)
 		return (0);
 	if (close(fd) < 0)
 		return (0);
-	/* free(buf); */
+	free(buf);
 	return (tmp);
 }
