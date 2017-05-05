@@ -10,12 +10,14 @@ track at [Holberton School](https://www.holbertonschool.com).
 **Whats in here?**
 
 Each directory contains the code I created as I progressed through the
-Holberton program. Each folder contains assignments on a given topic, each with
-different specifications.  These are small scale assignments, each folder with a
-one day timeline for completion. As such, the programs here are samples of my
-work as time progressed. If you are interested in my work on larger-scale
+Holberton program. Each sub-folder contains assignments on a given topic, each
+with different specifications.  These are small scale assignments, each folder
+with a one day timeline for completion. As such, the programs here are samples
+of my work as time progressed. If you are interested in my work on larger-scale
 projects, see some of my other repositories:
 
 [printf](https://github.com/Hillmonkey/printf)
+
+[simple\_shell](https://github.com/Hillmonkey/simple_shell)
 
 [autoCharlie](https://github.com/Hillmonkey/autocharlie)
