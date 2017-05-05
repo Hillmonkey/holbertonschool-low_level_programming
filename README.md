@@ -9,8 +9,8 @@ track at [Holberton School](https://www.holbertonschool.com).
 
 **Whats in here?**
 
-Each directory contains the code I created as I progressed through the
-Holberton program. Each sub-folder contains assignments on a given topic, each
+Each folder in this repo contains code I created as I progressed through the
+Holberton program. These folders contain assignments on given topics, each
 with different specifications.  These are small scale assignments, each folder
 with a one day timeline for completion. As such, the programs here are samples
 of my work as time progressed. If you are interested in my work on larger-scale
