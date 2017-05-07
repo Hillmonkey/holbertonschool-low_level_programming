@@ -18,13 +18,11 @@ dlistint_t *add_dnodeint(dlistint_t **head, const int n)
 	if (new == NULL)
 		return (NULL);
 	new->n = n;
-	/* if (*head == NULL) --from pseudocode */
-	new->next = *head; /* good if head = NULL or elsewise */
+	new->next = *head;
 	new->prev = NULL;
-	*head->prev = new;
-	**head->prev = new;
-	head->prev = new;
+	if (*head)
+		(*head)->prev = new;
 	*head = new;
 	
-	return (*head);
+	return (new);
 }
