@@ -42,6 +42,7 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 		new->prev = tmp;
 		(tmp)->next = new;
 		new->next->prev = new;
+		return (new);
 	}
 	/* insert at end */
 	else if (idx == len)
