@@ -100,9 +100,10 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 		else
 			return (NULL);
 	}
-	/* if idx > size_of_list THEN bail */
+	/* move pointer to desired location in list */
 	for (i = 0; tmp; i++)
 		tmp = tmp->next;
+	/* if idx > size_of_list THEN bail */
 	if (idx > i)
 		return (NULL);
 	/* if idx = size_of_list THEN insert at tail */
