@@ -20,7 +20,7 @@ size_t dlistint_len(const dlistint_t *h)
 
 /**
  * delete_dnodeint_at_index - delete node at index in doubly linked list
- * @head: pointer to a pointer to head of doubly linked list 
+ * @head: pointer to a pointer to head of doubly linked list
  * @index: position desired to be deleted from list
  * Return: 1 on success, -1 on failure
  **/
@@ -42,7 +42,7 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 		return (1);
 	}
 	/* move ptr to index spot in list */
-	for(i = 0; i < index - 1; i++)
+	for (i = 0; i < index - 1; i++)
 		tmp = tmp->next;
 	/* delete element from middle of list */
 	if (index < len - 1)
@@ -50,14 +50,14 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 		dud = tmp->next;
 		tmp->next = tmp->next->next;
 		tmp->next->prev = tmp;
-		free (dud);
+		free(dud);
 		return (1);
 	}
 	/* delete last element */
-	if (index == len -1)
+	if (index == len - 1)
 	{
 		tmp->prev->next = NULL;
-		free (tmp);
+		free(tmp);
 		return (1);
 	}
 	return (-1);
