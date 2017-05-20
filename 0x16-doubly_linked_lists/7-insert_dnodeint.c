@@ -1,123 +1,55 @@
-#include <stdlib.h>
-#include <string.h>
-#include <stdio.h>
 #include "lists.h"
 
 /**
- * add_dnodeint_end - add new node at end of doubly linked list list
- * @head: pointer to a pointer to head list element
- * @n: integer data to put in new list element
- * Return: address of new element, or NULL on failure
- **/
-
-dlistint_t *add_dnodeint_end(dlistint_t **head, const int n)
-{
-	dlistint_t *new;
-	dlistint_t *tmp;
-
-	new = malloc(sizeof(dlistint_t));
-	if (new == NULL)
-		return (NULL);
-	new->n = n;
-	new->next = NULL;
-	new->prev = NULL;
-
-	if (*head == NULL)
-	{
-		*head = new;
-		return (*head);
-	}
-	tmp = *head;
-	while (tmp->next != NULL)
-		tmp = tmp->next;
-	tmp->next = new;
-	new->prev = tmp;
-	return (*head);
-}
-
-/**
- * add_dnodeint - add new node at beginning of a dlistint_t list
- * @head: pointer to a pointer to a list element
- * @n: int data element of a node
- * Return: Address of a new element or NULL on failure
- **/
-
-dlistint_t *add_dnodeint(dlistint_t **head, const int n)
-{
-	dlistint_t *new;
-
-	new = malloc(sizeof(dlistint_t));
-	if (new == NULL)
-		return (NULL);
-	new->n = n;
-	new->next = *head;
-	new->prev = NULL;
-	if (*head)
-		(*head)->prev = new;
-	*head = new;
-
-	return (new);
-}
-
-/**
- * dlistint_len - return length of doubly linked list
- * @h: points to a list element, passed in to point to head
- * Return: number of nodes
- **/
-
-size_t dlistint_len(const dlistint_t *h)
-{
-	size_t i;
-
-	for (i = 0; h != NULL; i++)
-		h = h->next;
-	return (i);
-}
-
-/**
- * insert_dnodeint_at_index - insert node in doubly linked list @ spec'd spot
- * @h: pointer to pointer to head
- * @idx: represents index of desired location to insert node (0-indexed)
- * @n: data to put in new node (simple integer)
- * Return: pointer to new node or NULL on failure
- **/
-
+ * insert_dnodeint_at_index - inserts a new node at a specific index
+ * @idx: index to insert at
+ * @h: head of dlistint_t
+ * @n: number for new node
+ *    NOTE: This code is borrowed from Tim Britton to insure correct functionality
+ *          of subsequent assignments that build on the doubly-linked list data 
+ *          structure ...
+ * Return: Returns address to the new dnodeint, or NULL on failure
+ */
 dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 {
-	size_t len;
-	dlistint_t *new;
-	dlistint_t *tmp;
+	dlistint_t *walk, *newnode, *temp;
 	unsigned int i;
 
-	tmp = *h;
-	/* insert at head */
+	if (h == NULL && idx != 0)
+		return (NULL);
+	walk = *h;
+	newnode = malloc(sizeof(dlistint_t));
+	if (newnode == NULL)
+		return (NULL);
+	newnode->n = n;
 	if (idx == 0)
 	{
-		new = add_dnodeint(h, n);
-		return (new);
+		if (walk != NULL)
+		{
+			newnode->next = walk;
+			walk->prev = newnode;
+		}
+		else
+			newnode->next = NULL;
+		newnode->prev = NULL; *h = newnode;
+		return (*h);
 	}
-
-	len = dlistint_len(*h);
-	/* insert after first and before end */
-	if (idx < len)
+	for (i = 0; i < (idx - 1); i++)
 	{
-		new = malloc(sizeof(dlistint_t));
-		if (new == NULL)
-			return (NULL);
-		new->n = n;
-		for (i = 1; i < idx; i++)
-			tmp = (tmp)->next;
-		new->next = (tmp)->next;
-		new->prev = tmp;
-		(tmp)->next = new;
-		new->next->prev = new;
-		return (new);
+		if (walk == NULL)
+		{
+			free(newnode); return (NULL);
+		}
+		walk = walk->next;
 	}
-	/* insert at end */
-	if (idx == len)
+	if (walk == NULL)
 	{
-		new = add_dnodeint_end(h, n);
-		return (new);
+		free(newnode); return (NULL);
 	}
-	return (NULL);
+	temp = walk;
+	walk = walk->next;
+	temp->next = newnode;
+	newnode->next = walk;
+	newnode->prev = temp;
+	return (newnode);
 }
