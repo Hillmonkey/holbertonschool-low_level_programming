@@ -10,7 +10,7 @@
  * Return: address of new element, or NULL on failure
  **/
 
-dlistint_t *add_dnodeint_end(dlistint_t **head, const int n)
+dlistint_t *add_dnodeint_end2(dlistint_t **head, const int n)
 {
 	dlistint_t *new;
 	dlistint_t *tmp;
@@ -116,7 +116,7 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 	/* insert at end */
 	if (idx == len)
 	{
-		new = add_dnodeint_end(h, n);
+		new = add_dnodeint_end2(h, n);
 		return (new);
 	}
 	return (NULL);

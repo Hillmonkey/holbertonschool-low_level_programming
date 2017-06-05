@@ -32,14 +32,18 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 	dlistint_t *tmp, *dud;
 
 	len = dlistint_len(*head);
-	if (index >= len)
-        return (-1)
+	if (!head || !(*head) || index >= len)
+        return (-1);
 	tmp = *head;
 	/* delete first element */
 	if (index == 0)
 	{
-		*head = (*head)->next;
-		(*head)->prev = NULL;
+		/*  DEAL WITH LIST WITH ONE ELEMENT !!!! */
+		if (len > 1)
+		{
+			*head = (*head)->next;
+			(*head)->prev = NULL;
+		}
 		free(tmp);
 		return (1);
 	}
