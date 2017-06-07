@@ -11,39 +11,59 @@
 char **strtow(char *str)
 {
 	int i = 0, numwords = 0;
-	int j, k;
+	int j = 0, k;
 	char **buf, **words;
-
-	buf = malloc(sizeof(void *) * 1024);
+	/*
+	buf = malloc(sizeof(char *) * 1024);
+	printf("buf = %p\n", (void *)buf);
 	for (i = 0; i < 10; i++)
 	{
-		printf("pointer[%d]=>%p", i, buf[i]);
+		printf("pointer[%d]=>%p\n", i, (void *)buf[i]);
 	}
 	i = 0;
 	if (buf == NULL)
 		return (NULL);
+	*/
 
 	while (str[i] != '\0')
 	{
-		if (str[i] != ' ')
-		{
-			str[i] = '\0';
+		if (str[i] == ' ')
 			i++;
-		}
 		else
 		{
 			numwords += 1;
-			buf[numwords - 1] = str + i;
+			printf("numstring--%p", str + i);
 			while (str[i] != ' ')
+			{
 				i++;
+			}
 		}
 	}
-	words = malloc(sizeof(char **) * (numwords + 1));
+
+	words = malloc(sizeof(char *) * (numwords + 1));
 	if (words == NULL)
 		return (NULL);
+
+	while (str[j] != '\0')
+	{
+		len = 0;
+		if (str[j] == ' ')
+			j++;
+		else
+		{
+			len += 1;
+			while (str[j] != ' ')
+			{
+				j++;
+			}
+			words[0] = malloc(sizeof(char) *
+
+
+
+
 	for (i = 0; i < numwords; i++)
 	{
-		for (k = 0; buf[i][k]; k++)
+		for (k = 0; str[k] ==  k++)
 			;
 		words[i] = malloc(sizeof(char) * (k + 1));
 		for (j = 0; buf[i][j]; j++)
