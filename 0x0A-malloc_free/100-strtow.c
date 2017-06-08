@@ -38,15 +38,16 @@ char **strtow(char *str)
 	char **words;
 	char *tmp;
 
+	if (str == NULL)
+		return (NULL);
 	for (m = 0; str[m]; m++)
 		;
-	if (str == NULL || m == 0)
+	if (m == 0)
 		return (NULL);
 	numwords = wordcount(str);
 	words = malloc(sizeof(char *) * (numwords + 1));
 	if (words == NULL)
 		return (NULL);
-
 	while (str[j] != '\0')
 	{
 		wordlen = 0;
