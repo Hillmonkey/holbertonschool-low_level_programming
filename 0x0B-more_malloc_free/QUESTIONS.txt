@@ -1,0 +1,9 @@
+
+Problem #0
+===========
+
+exit(98) is a "hard" exit.  I'm trying to think of a way to do a "soft"
+return that returns both the desired output plus something similar to
+the 98 exit code.
+-->Do people ever create structs to return that
+contain both the desired output PLUS something similar to an exit code?
