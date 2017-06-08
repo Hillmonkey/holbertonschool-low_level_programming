@@ -3,19 +3,15 @@
 #include <stdio.h>
 
 /**
- * strtow - returns an array of strings (words)
- * @str - input string
- * Return: an array of strings
+ * wordcount - returns # of words in string (space delimiter)
+ * @str: string to count words in
+ * Return: Int = number of words in string
  **/
-
-char **strtow(char *str)
+int wordcount(char *str)
 {
-	int i = 0, numwords = 0;
-	int j = 0, k, len;
-	char **buf, **words;
-	char *tmp;
+	int i = 0;
+	int numwords = 0;
 
-	/* determine number of words in original string */
 	while (str[i] != '\0')
 	{
 		if (str[i] == ' ')
@@ -23,46 +19,53 @@ char **strtow(char *str)
 		else
 		{
 			numwords += 1;
-			/* printf("numstring--%p", str + i); */
 			while (str[i] != ' ')
-			{
 				i++;
-			}
 		}
 	}
-	printf("numwords = %d\n", numwords);
+	return (numwords);
+}
+/**
+ * strtow - returns an array of strings (words)
+ * @str: input string
+ * Return: an array of strings
+ **/
+
+char **strtow(char *str)
+{
+	int i = 0, numwords;
+	int j = 0, k, wordlen;
+	char **words;
+	char *tmp;
+
+	numwords = wordcount(str);
 	words = malloc(sizeof(char *) * (numwords + 1));
 	if (words == NULL)
 		return (NULL);
-	
 
 	while (str[j] != '\0')
 	{
-		printf("while[j] loop #%d\n", j);
-		len = 0;
+		wordlen = 0;
 		if (str[j] == ' ')
 			j++;
 		else
-		{ /* use tmp to drop a pointer */
+		{
 			tmp = str + j;
-			j++;
-			len += 1;
+			wordlen += 1;
 			while (str[j] != ' ')
 			{
-				len++;
+				wordlen++;
 				j++;
 			}
-			words[i] = malloc(sizeof(char) * (len + 1));
+			words[i] = malloc(sizeof(char) * (wordlen + 1));
 			if (words[i] == NULL)
 				return (NULL);
-			for (k = 0; k < len; k++)
+			for (k = 0; k < wordlen; k++)
 				words[i][k] = tmp[k];
-			words[i][len] = '\0';
+			words[i][wordlen] = '\0';
 			i++;
 		}
 	}
 	words[numwords] = NULL;
 	return (words);
-
 }
-
