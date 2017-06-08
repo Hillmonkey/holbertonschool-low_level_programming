@@ -11,20 +11,11 @@
 char **strtow(char *str)
 {
 	int i = 0, numwords = 0;
-	int j = 0, k;
+	int j = 0, k, len;
 	char **buf, **words;
-	/*
-	buf = malloc(sizeof(char *) * 1024);
-	printf("buf = %p\n", (void *)buf);
-	for (i = 0; i < 10; i++)
-	{
-		printf("pointer[%d]=>%p\n", i, (void *)buf[i]);
-	}
-	i = 0;
-	if (buf == NULL)
-		return (NULL);
-	*/
+	char *tmp;
 
+	/* determine number of words in original string */
 	while (str[i] != '\0')
 	{
 		if (str[i] == ' ')
@@ -32,43 +23,46 @@ char **strtow(char *str)
 		else
 		{
 			numwords += 1;
-			printf("numstring--%p", str + i);
+			/* printf("numstring--%p", str + i); */
 			while (str[i] != ' ')
 			{
 				i++;
 			}
 		}
 	}
-
+	printf("numwords = %d\n", numwords);
 	words = malloc(sizeof(char *) * (numwords + 1));
 	if (words == NULL)
 		return (NULL);
+	
 
 	while (str[j] != '\0')
 	{
+		printf("while[j] loop #%d\n", j);
 		len = 0;
 		if (str[j] == ' ')
 			j++;
 		else
-		{
+		{ /* use tmp to drop a pointer */
+			tmp = str + j;
+			j++;
 			len += 1;
 			while (str[j] != ' ')
 			{
+				len++;
 				j++;
 			}
-			words[0] = malloc(sizeof(char) *
-
-
-
-
-	for (i = 0; i < numwords; i++)
-	{
-		for (k = 0; str[k] ==  k++)
-			;
-		words[i] = malloc(sizeof(char) * (k + 1));
-		for (j = 0; buf[i][j]; j++)
-			words[i][j] = buf[i][j];
-		words[i][j] = '\0';
+			words[i] = malloc(sizeof(char) * (len + 1));
+			if (words[i] == NULL)
+				return (NULL);
+			for (k = 0; k < len; k++)
+				words[i][k] = tmp[k];
+			words[i][len] = '\0';
+			i++;
+		}
 	}
+	words[numwords] = NULL;
 	return (words);
+
 }
+
