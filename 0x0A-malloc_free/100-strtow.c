@@ -34,11 +34,13 @@ int wordcount(char *str)
 char **strtow(char *str)
 {
 	int i = 0, numwords;
-	int j = 0, k, wordlen;
+	int j = 0, k, m = 0, wordlen;
 	char **words;
 	char *tmp;
 
-	if (str == NULL || str = "")
+	for (m = 0; str[m]; m++)
+		;
+	if (str == NULL || m == 0)
 		return (NULL);
 	numwords = wordcount(str);
 	words = malloc(sizeof(char *) * (numwords + 1));
