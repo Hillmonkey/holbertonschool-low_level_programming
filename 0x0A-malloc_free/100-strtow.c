@@ -38,6 +38,8 @@ char **strtow(char *str)
 	char **words;
 	char *tmp;
 
+	if (str == NULL || str = "")
+		return (NULL);
 	numwords = wordcount(str);
 	words = malloc(sizeof(char *) * (numwords + 1));
 	if (words == NULL)
