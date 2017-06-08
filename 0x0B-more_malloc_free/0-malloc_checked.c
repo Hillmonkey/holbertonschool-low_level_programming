@@ -7,7 +7,7 @@
  *  Return: pointer to allocated memory or 98 if malloc is unsuccesful
  **/
 
-void *malloc_checked(usigned int b)
+void *malloc_checked(unsigned int b)
 {
 	void *ptr;
 
