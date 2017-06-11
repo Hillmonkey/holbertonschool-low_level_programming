@@ -1,22 +1,28 @@
 #include "holberton.h"
+#include <stdio.h>
 #include <stdlib.h>
 
 /**
- * create_array - create array of chars, & initializes it with specified
- *                 char
- * @size: size of array to be created
- * @c: value to "terraform" into freshly created array
- * Return: pointer to array, or NULL if it fails
- */
+ * create_array - returns array of chars inited to char c
+ * @size: size of array
+ * @c: char to be copied into all cells of array
+ * Return: we call it an array of chars, looks like a string to me!
+ **/
+
 char *create_array(unsigned int size, char c)
 {
-	char *car;
 	unsigned int i;
+	char *array;
 
-	car = malloc(size * sizeof(char));
-	if (car == NULL || size == 0)
+	if (size <= 0)
+		return (NULL);
+
+	array = malloc(sizeof(char) * size);
+	if (array == NULL)
 		return (NULL);
 	for (i = 0; i < size; i++)
-		car[i] = c;
-	return (car);
+	{
+		array[i] = c;
+	}
+	return (array);
 }
