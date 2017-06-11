@@ -1,39 +1,27 @@
 #include "holberton.h"
 #include <stdio.h>
 /**
- * rev_string - Reverses a string, pointer never changes
+ * rev_string - Reverses a string in place
+ *  using pointer arithmetic because I can!
  * @s : pointer to the beginning of a string
  * Return: void
  **/
 void rev_string(char *s)
 {
-	int len = 0;
+	int len;
 	int half;
-	char *tmpP;
 	int i;
-	char tmpC;
+	char c;
 
-	tmpP = s;
-	while (*s != 0)
-	{
-		len++;
-		s++;
-	}
-	s = tmpP;
+	for (len = 0; s[len]; len++)
+		;
 	len--;
 	half = len / 2;
 	for (i = 0; i < half; i++)
 	{
-		tmpC = *(s + i);
+		c = *(s + i);
 		*(s + i) = *(s + (len - i));
-		*(s + (len - i)) = tmpC;
+		*(s + (len - i)) = c;
 	}
-	*(s + (len + 1)) = '\0';
-	s = tmpP;
-	while (*s != 0)
-	{
-		len++;
-		s++;
-	}
-	printf ("%d\n", len);
+	*(s + len + 1) = '\0';
 }
