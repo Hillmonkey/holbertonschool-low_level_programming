@@ -56,13 +56,13 @@ char **strtow(char *str)
 		else
 		{
 			tmp = str + j;
-			wordlen += 1;
+			/* wordlen += 1; */
 			while (str[j] != ' ')
 			{
 				wordlen++;
 				j++;
 			}
-			words[i] = malloc(sizeof(char) * (wordlen + 1));
+			words[i] = malloc(sizeof(char) * (wordlen));
 			if (words[i] == NULL)
 				return (NULL);
 			for (k = 0; k < wordlen; k++)
