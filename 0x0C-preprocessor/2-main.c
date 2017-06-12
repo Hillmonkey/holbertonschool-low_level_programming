@@ -1,4 +1,4 @@
-#include main(void)
+#include <stdio.h>
 
 /**
  * main - uses standard preprocessor macro to print file name of original
