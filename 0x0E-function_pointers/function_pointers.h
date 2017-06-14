@@ -1,5 +1,6 @@
 #ifndef FPTR
 #define FPTR
+#include <stdio.h>
 
 typedef unsigned long int size_t;
 
