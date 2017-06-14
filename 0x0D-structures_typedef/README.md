@@ -1,4 +1,4 @@
-#0x0D. C - structures & typedef
+#0x0D. D - structures & typedef
 
 ### Learning to code with [Larry Madeo](https://twitter.com/larmalade)
 
