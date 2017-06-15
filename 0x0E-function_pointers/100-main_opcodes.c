@@ -32,7 +32,7 @@ int main(int argc, char *argv[])
 		byte = *(f + i);
 		printf("%02hhx", (unsigned char) *byte);
 		if (i == num_bytes - 1)
-			puts("");
+			printf("\n");
 		else
 			printf(" ");
 	}
