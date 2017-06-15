@@ -29,8 +29,8 @@ int main(int argc, char *argv[])
 	}
 	for (i = 0; i < num_bytes; i++)
 	{
-		byte = *(f + i);
-		printf("%02hhx", (unsigned char) *byte);
+		byte = (unsigned char *)*(f + i);
+		printf("%x", *byte & 0xff);
 		if (i == num_bytes - 1)
 			printf("\n");
 		else
