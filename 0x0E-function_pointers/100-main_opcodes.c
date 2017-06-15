@@ -27,7 +27,6 @@ int main(int argc, char *argv[])
 		printf("Error\n");
 		exit(2);
 	}
-	printf("num_bytes = %d\n", num_bytes);
 	for (i = 0; i < num_bytes; i++)
 	{
 		byte = *(f + i);
