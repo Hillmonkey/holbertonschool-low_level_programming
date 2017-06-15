@@ -30,7 +30,7 @@ int main(int argc, char *argv[])
 	for (i = 0; i < num_bytes; i++)
 	{
 		byte = (unsigned char *)*(f + i);
-		printf("%x", *byte & 0xff);
+		printf("%02x", *byte & 0xff);
 		if (i == num_bytes - 1)
 			printf("\n");
 		else
