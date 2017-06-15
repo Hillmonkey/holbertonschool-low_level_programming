@@ -39,7 +39,7 @@ int op_mul(int a, int b)
  * op_div - divides a by b
  * @a: an int
  * @b: another int
- * Return: int -result of a / b; if b = 0; exit status = 100, print "Error"
+ * Return: int -result of a / b, if b = 0, exit status = 100, print "Error"
  **/
 int op_div(int a, int b)
 {
