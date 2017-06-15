@@ -2,12 +2,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-/**
- * print_args - arg
- * @ac: int
- * @av: array of strings
- * Return: zero
- **/
 int print_args(int ac, char *av[])
 {
 	int i = 0;
