@@ -10,12 +10,10 @@
 
 int main(int argc, char *argv[])
 {
-	int (*f)(int, char**);
 	int i;
 	int num_bytes;
 	char *byte;
 
-	f = main;
 	if (argc != 2)
 	{
 		printf("Error\n");
@@ -29,7 +27,7 @@ int main(int argc, char *argv[])
 	}
 	for (i = 0; i < num_bytes; i++)
 	{
-		byte = (unsigned char *)*(f + i);
+		byte = (unsigned char *)*(main + i);
 		printf("%02x", *byte & 0xff);
 		if (i == num_bytes - 1)
 			printf("\n");
