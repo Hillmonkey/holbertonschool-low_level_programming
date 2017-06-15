@@ -28,8 +28,8 @@ int main(int argc, char *argv[])
 {
 
 	int a;
-	long int b, c;
-	char *endptr;
+	/* long int b, c; */
+	/* char *endptr; */
 
 	if (argc != 4)
 	{
@@ -37,10 +37,10 @@ int main(int argc, char *argv[])
 		/* print_args(argc, argv); */
 		exit(98);
 	}
-	b = strtol(argv[1], &endptr, 10);
-	c = strtol(argv[3], &endptr, 10);
-	/* a = (*get_op_func(argv[2]))(atoi(argv[1]), atoi(argv[3])); */
-	a = (*get_op_func(argv[2]))(b, c);
+	/* b = strtol(argv[1], &endptr, 10); */
+	/* c = strtol(argv[3], &endptr, 10); */
+	a = (*get_op_func(argv[2]))(atoi(argv[1]), atoi(argv[3]));
+	/* a = (*get_op_func(argv[2]))(b, c); */
 	printf("%d\n", a);
 	return (0);
 }
