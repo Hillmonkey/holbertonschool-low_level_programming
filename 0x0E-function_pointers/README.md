@@ -1,4 +1,4 @@
-#0x0D. D - function pointers
+#0x0D. E - Function Pointers
 
 ### Learning to code with [Larry Madeo](https://twitter.com/larmalade)
 
