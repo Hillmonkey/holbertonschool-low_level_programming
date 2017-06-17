@@ -37,9 +37,11 @@ void op_string(va_list valist)
 
 	str = va_arg(valist, char*);
 	if (str)
+	{
 		printf("%s", str);
-	else
-		printf("(nil)");
+		return;
+	}
+	printf("(nil)");
 }
 /**
  * print_all - this function prints anything!!!
@@ -48,6 +50,7 @@ void op_string(va_list valist)
 
 void print_all(const char * const format, ...)
 {
+	char * sep = "";
 	va_list valist;
 	int i = 0, j = 0;
 	op_t ops[] = {
@@ -66,9 +69,10 @@ void print_all(const char * const format, ...)
 		{
 			if (ops[j].op[0] == format[i])
 			{
+				printf("%s", sep);
+				sep = ", ";
 				ops[j].f(valist);
-				if (!(format[i] == '\0' || format[i + 1] == '\0'))
-					printf(", ");
+				break;
 			}
 			j++;
 		}
