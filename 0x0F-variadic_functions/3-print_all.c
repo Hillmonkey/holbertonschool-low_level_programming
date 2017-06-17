@@ -50,7 +50,7 @@ void op_string(va_list valist)
 
 void print_all(const char * const format, ...)
 {
-	char * sep = "";
+	char *sep = "";
 	va_list valist;
 	int i = 0, j = 0;
 	op_t ops[] = {
