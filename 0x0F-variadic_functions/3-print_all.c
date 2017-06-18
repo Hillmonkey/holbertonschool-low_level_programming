@@ -51,7 +51,6 @@ void op_string(va_list valist)
 void print_all(const char * const format, ...)
 {
 	char *sep = "";
-	char *terminator = "";
 	va_list valist;
 	int i = 0, j = 0;
 	op_t ops[] = {
@@ -72,12 +71,11 @@ void print_all(const char * const format, ...)
 			{
 				printf("%s", sep);
 				sep = ", ";
-				terminator = "\n";
 				ops[j].f(valist);
 			}
 			j++;
 		}
 		i++;
 	}
-	printf("%s", terminator);
+	printf("\n");
 }
