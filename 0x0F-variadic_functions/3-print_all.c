@@ -62,7 +62,7 @@ void print_all(const char * const format, ...)
 	};
 
 	va_start(valist, format);
-	while (format[i]) /* "ceis" */
+	while (format && format[i]) /* "ceis" */
 	{
 		j = 0;
 		while (ops[j].f)
@@ -72,10 +72,12 @@ void print_all(const char * const format, ...)
 				printf("%s", sep);
 				sep = ", ";
 				ops[j].f(valist);
+				break;
 			}
 			j++;
 		}
 		i++;
 	}
+	va_end(valist);
 	printf("\n");
 }
