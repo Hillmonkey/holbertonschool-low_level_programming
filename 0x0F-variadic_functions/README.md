@@ -1,4 +1,4 @@
-#0x0D. F - Variadic Functions
+#0x0F. C - Variadic Functions
 
 ### Learning to code with [Larry Madeo](https://twitter.com/larmalade)
 
