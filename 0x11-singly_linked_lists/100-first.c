@@ -1,3 +1,5 @@
+#include <stdio.h>
+
 /**
  * premain - prints string before main executes
  **/
