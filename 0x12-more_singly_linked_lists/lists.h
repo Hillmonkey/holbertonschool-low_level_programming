@@ -32,5 +32,6 @@ int delete_nodeint_at_index(listint_t **head, unsigned int index);
 /* helper functions not specified by assignment */
 listint_t *split(listint_t *head, unsigned int idx);
 listint_t *join(listint_t *h1, listint_t *h2);
+listint_t *reverse_listint(listint_t **head);
 
 #endif /* LISTS_H */
