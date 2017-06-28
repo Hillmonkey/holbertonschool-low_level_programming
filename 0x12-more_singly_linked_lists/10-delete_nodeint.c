@@ -23,7 +23,6 @@ int delete_nodeint_at_index(listint_t **head, unsigned int index)
 	}
 	for (len = 0; (tmp && tmp->next); len++)
 		tmp = tmp->next;
-	printf("len = %d\n", len);
 	prev = tmp = *head;
 	if (index <= len)
 	{
