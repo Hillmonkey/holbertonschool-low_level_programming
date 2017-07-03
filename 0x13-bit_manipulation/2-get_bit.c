@@ -16,11 +16,5 @@ int get_bit(unsigned long int n, unsigned int index)
 	if (index > UL_size)
 		return (-1);
 	n = n >> index;
-	/**
-	if (((n >> 1) << 1) == n)
-		return (0);
-	else
-		return (1);
-	**/
-	return ((((n >> 1) <<1) == n) ? 0: 1);
+	return ((((n >> 1) << 1) == n) ? 0 : 1);
 }
