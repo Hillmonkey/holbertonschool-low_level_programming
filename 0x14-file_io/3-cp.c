@@ -14,7 +14,7 @@ int main(int ac, char **av)
 	int fd2; /* file descriptor for file_to */
 	mode_t w_mode;
 
-	w_mode = S_IRUSR | S_IWUSR | S_IRGRP | S_IWCRP | S_IROTH
+	w_mode = S_IRUSR | S_IWUSR | S_IRGRP | S_IWCRP | S_IROTH;
 	if (ac != 3)
 		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n"), exit(97);
 	fd1 = open(av[1], O_RDONLY);
