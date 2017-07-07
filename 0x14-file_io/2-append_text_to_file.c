@@ -18,13 +18,20 @@ int append_text_to_file(const char *filename, char *text_content)
 	ssize_t fd;
 	ssize_t n;
 
+	/*
 	if (text_content == NULL || *text_content == '\0')
 		return (-1);
-	for (len = 0; text_content[len] != '\0'; len++)
-		;
+	*/
+	if (!text_content)
+		len = 0;
+	else
+		for (len = 0; text_content[len] != '\0'; len++)
+			;
 	fd = open(filename, O_WRONLY | O_APPEND, 0600);
 	if (fd < 0)
 		return (-1);
+	if (text_content == NULL)
+		text_content = "";
 	n = write(fd, text_content, len);
 	if (n < 0)
 		return (-1);
