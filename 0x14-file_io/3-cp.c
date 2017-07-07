@@ -23,14 +23,15 @@ int main(int ac, char **av)
 	fd2 = (open(av[2], O_WRONLY | O_CREAT | O_TRUNC, w_mode));
 	if (fd2 == -1)
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", av[2]), exit(99);
-	while (ret1)
+	while (ret1 > 0)
 	{
 		ret1 = read(fd1, buf, BUF_SIZE);
 		if (ret1 == -1)
 			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", av[1]), exit(98);
-		ret2 = write(fd2, buf, ret1);
-		if (ret2 == -1)
-			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", av[2]), exit(99);
+		if (ret1 > 0)
+			ret2 = write(fd2, buf, ret1);
+			if (ret2 == -1)
+				dprintf(STDERR_FILENO, "Error: Can't write to %s\n", av[2]), exit(99);
 	}
 	if (close(fd1) == -1)
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd1), exit(100);
