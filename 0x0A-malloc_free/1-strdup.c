@@ -41,6 +41,6 @@ char *_strdup(char *str)
 	for (i = 0; str[i] != '\0'; i++)
 		new[i] = str[i];
 
-	new[size] = '\0';
+	new[size - 1] = '\0';
 	return (new);
 }
