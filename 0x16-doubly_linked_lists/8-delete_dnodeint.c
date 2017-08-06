@@ -34,8 +34,6 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 		}
 		if (index == i && i > 0)
 		{
-			printf("i = %ud\n", i);
-			printf("tmp->n = %d\n", tmp->n);
 			tmp->prev->next = tmp->next;
 			tmp->next->prev = tmp->prev;
 			free(tmp);
