@@ -1,5 +1,4 @@
 #include "lists.h"
-
 /**
  * insert_dnodeint_at_index - insert node at index
  * @h: double pointer to head
@@ -9,43 +8,45 @@
  **/
 
 dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
+/* int delete_dnodeint_at_index(dlistint_t **head, unsigned int index) */
 {
-	dlistint_t *new, *tmp, *previ;
-	unsigned int i, success = FALSE;
+	dlistint_t *new, *tmp = *h, *prev = *h;
+	unsigned int i;
 
-	if (!h)
+	if (!h) /* could create node and insert at head??? */
 		return (NULL);
-
-	new = malloc(sizeof(dlistint_t));
-	if (new == NULL)
+	new = malloc(sizeof(dlistint_t *));
+	if (!new)
 		return (NULL);
-	new->n = n;
-
-	tmp = previ = *h;
-	for (i = 0; !success && tmp; i++)
+	new->n = n, new->next = NULL; new->prev = NULL;
+	if (*h == NULL)
 	{
-		if (idx == i)
-		{
-			new->next = tmp;
-			new->prev = tmp->prev;
-			tmp->prev->next = new;
-			tmp->prev = new;
-			success = TRUE;
-		}
-		if (success)
-			break;
-		previ = tmp;
-		tmp = tmp->next;
+		*h = new;
+		return (new);
 	}
-	if (success)
-		return (new);
-	else if (idx == i)
+	for (i = 0; prev->next && i <= idx; i++, prev = tmp, tmp = tmp->next)
 	{
-		new->next = tmp;
-		new->prev = previ;
-		if (previ)
-			previ->next = new;
-		return (new);
+		if (idx == 0)
+		{
+			/* insert at beginning */
+			new->next = *h, (*h)->prev = new, *h = new;
+			return (new);
+		}
+		if (prev->next == NULL) /* you're at the end */
+		{
+			if (idx == i) /* insert at the end */
+			{
+				prev->next = new, new->prev = prev;
+				return (new);
+			}
+			else /* trying to insert way past end of list */
+				return (NULL);
+		}
+		if (idx == i) /* insert in middle of list */
+		{
+			prev->next = new, new->prev = prev, new->next = tmp, tmp->prev = new;
+			return (new);
+		}
 	}
 	return (NULL);
 }
