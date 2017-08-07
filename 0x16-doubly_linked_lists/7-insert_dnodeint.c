@@ -1,4 +1,18 @@
 #include "lists.h"
+
+/**
+ * create_node - creates node with specified int as data
+ * @new: double pointer to a node in doubly linked list
+ * @n: int to put into node as data
+ **/
+void create_node(dlistint_t **new, int n)
+{
+	*new = malloc(sizeof(dlistint_t *));
+	(*new)->n = n;
+	(*new)->next = NULL;
+	(*new)->prev = NULL;
+}
+
 /**
  * insert_dnodeint_at_index - insert node at index
  * @h: double pointer to head
@@ -12,12 +26,9 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 	dlistint_t *new, *tmp = *h, *prev = *h;
 	unsigned int i;
 
-	if (!h) /* could create node and insert at head??? */
+	if (!h)
 		return (NULL);
-	new = malloc(sizeof(dlistint_t *));
-	if (!new)
-		return (NULL);
-	new->n = n, new->next = NULL, new->prev = NULL;
+	create_node(&new, n);
 	if (*h == NULL && idx == 0) /* empty list, insert at  */
 	{
 		*h = new;
@@ -48,8 +59,7 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 			return (new);
 		}
 		prev = tmp;
-		if (tmp)
-			tmp = tmp->next;
+		tmp = tmp ? tmp->next : tmp;
 	}
 	return (NULL);
 }
