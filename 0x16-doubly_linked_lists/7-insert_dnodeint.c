@@ -34,7 +34,7 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 	if (!h)
 		return (NULL);
 	new = create_node(n);
-	if (*h == NULL && idx == 0 && new) /* empty list, insert at  */
+	if (*h == NULL && idx == 0 && new) /* empty list, insert at index zero */
 	{
 		*h = new;
 		return (new);
