@@ -18,14 +18,14 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 	if (!new)
 		return (NULL);
 	new->n = n, new->next = NULL, new->prev = NULL;
-	if (*h == NULL && idx == 0)
+	if (*h == NULL && idx == 0) /* empty list, insert at  */
 	{
 		*h = new;
 		return (new);
 	}
-	if (*h == NULL && idx > 0)
+	if (*h == NULL && idx > 0) /* empty list, wrong place to insert */
 		return (NULL);
-	for (i = 0; prev->next && i <= idx; i++, prev = tmp, tmp = tmp->next)
+	for (i = 0; prev && i <= idx; i++)
 	{
 		if (idx == 0)
 		{ /* insert at beginning */
@@ -47,6 +47,9 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 			prev->next = new, new->prev = prev, new->next = tmp, tmp->prev = new;
 			return (new);
 		}
+		prev = tmp;
+		if (tmp)
+			tmp = tmp->next;
 	}
 	return (NULL);
 }
