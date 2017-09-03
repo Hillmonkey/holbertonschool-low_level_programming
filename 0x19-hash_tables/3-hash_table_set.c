@@ -21,7 +21,12 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 
 	status = insert_node(ht, new_node);
 	if (status == EXIT_FAILURE)
+	{
+		free(new_node->key);
+		free(new_node->value);
+		free(new_node);
 		return (EXIT_FAILURE);
+	}
 	else
 		return (EXIT_SUCCESS);
 }
