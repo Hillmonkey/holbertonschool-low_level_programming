@@ -1,3 +1,9 @@
+/**
+ * hash_djb2 - hash generator ... djb2 algorithm
+ * @str: value to be hasned
+ * Return: quasi-random hash value
+ **/
+ 
 unsigned long int hash_djb2(const unsigned char *str)
 {
 	unsigned long int hash;
