@@ -11,8 +11,7 @@ int insert_node(hash_table_t *ht, hash_node_t *h_node)
 	unsigned long int idx;
 	hash_node_t *tmp;
 
-	/* TABLE_SIZE should be same as ht->size */
-	idx = key_index((const unsigned char *)(h_node->key), TABLE_SIZE);
+	idx = key_index((const unsigned char *)(h_node->key), ht->size);
 	tmp = ht->array[idx];
 	while (tmp)
 	{
