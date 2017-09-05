@@ -57,10 +57,12 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 
 	status = insert_node(ht, new_node);
 	if (status == 0)
-		/* should I free key, value and node here?
-		free(new_node->key);
-		free(new_node->value);
-		free(new_node); */
+		/*
+		*  should I free key, value and node here?
+		* free(new_node->key);
+		* free(new_node->value);
+		* free(new_node);
+		 */
 		return (0);
 	else
 		return (1);
