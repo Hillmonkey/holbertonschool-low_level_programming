@@ -5,7 +5,6 @@
 #include <stdio.h>
 #include <string.h>
 
-#define TABLE_SIZE 1024
 #define TRUE 1
 #define FALSE 0
 
