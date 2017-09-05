@@ -20,22 +20,23 @@ void print_list(hash_node_t *HN, int comma)
 
 /**
  * hash_table_print - prints all key/value pairs in hash table
- * @ht: pointer to hash table
+ * @HT: pointer to hash table
  * Return: nothing
  **/
-void hash_table_print(const hash_table_t *ht)
+void hash_table_print(const hash_table_t *HT)
 {
 	unsigned long int i;
 	int comma = FALSE;
 
-	if (ht == NULL)
+	if ((HT == NULL) || ((HT->array) == NULL))
 		return;
 	putchar('{');
-	for (i = 0; i <= ht->size; i++)
+	for (i = 0; i <= HT->size; i++)
 	{
-		if (ht->array[i] != NULL)
+		/* printf("HT->array[%lu] %p\n", i, (void *)HT->array[i]); */
+		if (HT->array[i])
 		{
-			print_list(ht->array[i], comma);
+			print_list(HT->array[i], comma);
 			comma = TRUE;
 		}
 	}
