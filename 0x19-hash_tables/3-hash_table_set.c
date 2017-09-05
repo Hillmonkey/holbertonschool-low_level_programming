@@ -2,49 +2,66 @@
 
 /**
  * insert_node - insert node into hash table
- * @ht: pointer to hash table data structure
- * @h_node: already created node to insert into hash table
+ * @HT: pointer to hash table data structure
+ * @HN: already created node to insert into hash table
  * Return: 1 on success, 0 on failure
  **/
-int insert_node(hash_table_t *ht, hash_node_t *h_node)
+int insert_node(hash_table_t *HT, hash_node_t *HN)
 {
 	unsigned long int idx;
-	hash_node_t *tmp;
+	hash_node_t *tmp, *prev;
 
-	idx = key_index((const unsigned char *)(h_node->key), ht->size);
-	tmp = ht->array[idx];
-	while (tmp)
+	idx = key_index((const unsigned char *)(HN->key), HT->size);
+	if (HT->array[idx] == NULL)
 	{
-		/* test for key clash */
-		if (strcmp(tmp->key, (const char *)(h_node->key)) == 0)
-			return (0);
-		tmp = tmp->next;
-	}
-	if (ht->array[idx] == NULL)
-	{
-		ht->array[idx] = h_node;
+		HT->array[idx] = HN;
 		return (1);
 	}
-	tmp = ht->array[idx];
-	ht->array[idx] = h_node;
-	h_node->next = tmp;
+	tmp = prev = HT->array[idx];
+	while (tmp)
+	{
+		/* key clash => write over old value */
+		if (strcmp(tmp->key, (const char *)(HN->key)) == 0)
+		{
+			if (tmp->value)
+				free(tmp->value);
+			tmp->value = strdup(HN->value);
+			free(HN);
+			return (1);
+		}
+		prev = tmp;
+		tmp = tmp->next;
+	}
+	/* no clash -- append node*/
+	prev->next = HN;
 	return (1);
 }
 
 /**
+ * free_node -free a fully formed hash table node (no links to deal with)
+ * @HN: node to be freed
+ * Return: void
+ **/
+void free_node(hash_node_t *HN)
+{
+	free(HN->key);
+	free(HN->value);
+	free(HN);
+}
+
+/**
  * hash_table_set - add key value pair to hash table
- * @ht: pointer to hash table data structure
+ * @HT: pointer to hash table data structure
  * @key: key string (must be unique)
  * @value: value string (uniqueness not required)
  * Return: 1 on success, 0 otherwise
  **/
-int hash_table_set(hash_table_t *ht, const char *key, const char *value)
+int hash_table_set(hash_table_t *HT, const char *key, const char *value)
 {
 	int status;
 	hash_node_t *new_node;
 
-
-	if (key == NULL || key[0] == '\0')
+	if (key == NULL || key[0] == '\0' || HT == NULL)
 		return (0);
 
 	new_node = malloc(sizeof(hash_node_t));
@@ -52,9 +69,10 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		return (0);
 	new_node->key = strdup(key);
 	new_node->value = strdup(value);
+	new_node->next = NULL;
 	/* I don't think I need to malloc() *next here, change later if needed */
 
-	status = insert_node(ht, new_node);
+	status = insert_node(HT, new_node);
 	if (status == 0)
 		/*
 		*  should I free key, value and node here?
