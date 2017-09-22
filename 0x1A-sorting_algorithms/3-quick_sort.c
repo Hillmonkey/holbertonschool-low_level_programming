@@ -12,9 +12,9 @@
  **/
 int partition(int *array, size_t size, int start, int end)
 {
-	int pivot, pidx, tmp, i, modified;
+	int pivot, pidx, tmp, i;
 
-	modified = FALSE;
+	/* modified = FALSE; */
 	pivot = array[end]; /* set last value as pivot */
 	pidx = start - 1; /* start from left --> right and compare */
 
@@ -25,7 +25,7 @@ int partition(int *array, size_t size, int start, int end)
 			pidx += 1;
 			if (i != pidx)
 			{
-				modified = TRUE;
+				/* modified = TRUE; */
 				tmp = array[i];
 				array[i] = array[pidx];
 				array[pidx] = tmp;
