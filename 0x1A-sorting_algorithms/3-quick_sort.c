@@ -5,7 +5,7 @@
  * partition - segregates values to either side of pivot: lower values to left
  *              greater values to the right
  * @array: array of ints
- * @size: size of array
+ * @size: size of whole array
  * @start: low index of sub-array
  * @end: upper bound index of sub-array
  * Return: updated array index of pivot
@@ -29,11 +29,15 @@ int partition(int *array, size_t size, int start, int end)
 				tmp = array[i];
 				array[i] = array[pidx];
 				array[pidx] = tmp;
+				print_array(array, size);
 			}
 		}
 	}
-	if (modified)
-		print_array(array, size); /* print if change occured */
+	/**
+	*if (modified || size == 2)
+	*	print_array(array, size); print if change occured
+	*	printf("\tpidx=%d lo=%d hi=%d\n", pidx, start, end);
+	**/
 
 	/* put the pivot value at its rightful place */
 	if (array[end] < array[pidx + 1])
@@ -42,6 +46,7 @@ int partition(int *array, size_t size, int start, int end)
 		array[pidx + 1] = array[end];
 		array[end] = tmp;
 		print_array(array, size);
+		/* printf("\tpidx=%d lo=%d hi=%d\n", pidx, start, end); */
 	}
 	return (pidx + 1); /* return divide point of semi sorted array */
 }
