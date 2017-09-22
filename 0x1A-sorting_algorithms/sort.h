@@ -30,4 +30,8 @@ void selection_sort(int *array, size_t size);
 void shell_sort(int *array, size_t size);
 void cocktail_sort_list(listint_t **list);
 
+/* 3-quick_sort.c helper files */
+void partition(int *array, size_t size, int start, int end);
+void quick_sort_recurse(int *array, size_t size, int start, int end);
+
 #endif /*__sort_h_*/
