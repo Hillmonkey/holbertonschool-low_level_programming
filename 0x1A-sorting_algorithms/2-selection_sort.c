@@ -20,7 +20,7 @@ void selection_sort(int *array, size_t size)
 			if (array[idx] < array[min_idx]) /*update min position*/
 				min_idx = idx;
 		if (min_idx != j) /* Dont swap in place */
-		{ 	/* put minimum value first */
+			{ /* put minimum value first */
 			tmp = array[j];
 			array[j] = array[min_idx];
 			array[min_idx] = tmp;
