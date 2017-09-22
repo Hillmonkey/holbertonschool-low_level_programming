@@ -88,11 +88,12 @@ void insert_node(listint_t *target_node, listint_t *swap_node)
  */
 void insertion_sort_list(listint_t **list)
 {
-	listint_t *current = *list, *back_node;
+	listint_t *current, *back_node;
 
 	if (list == NULL || *list == NULL)
-		exit(EXIT_FAILURE);
+		return;
 
+	current = list;
 	while (current->next)
 	{
 		back_node = current;
@@ -115,7 +116,7 @@ void insertion_sort_list(listint_t **list)
 		/* is this going to mess with the while loop??? */
 		if (current->next == NULL)
 			break;
-		if (current->next && current->n < current->next->n)
+		if (current->next && current->n <= current->next->n)
 		{
 			current = current->next;
 		}
