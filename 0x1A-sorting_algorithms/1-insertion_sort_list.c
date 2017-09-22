@@ -93,7 +93,7 @@ void insertion_sort_list(listint_t **list)
 	if (list == NULL || *list == NULL)
 		return;
 
-	current = list;
+	current = *list;
 	while (current->next)
 	{
 		back_node = current;
