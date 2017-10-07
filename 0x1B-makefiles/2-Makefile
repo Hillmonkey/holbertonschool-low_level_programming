@@ -1,0 +1,10 @@
+CC=gcc
+# SRC := $(wildcard *.c)
+SRC=main.c holberton.c
+
+# OBJ := $(patsubst %.c, %.o, $(SRC))
+OBJ := $(SRC:.c=.o)
+NAME=holberton
+
+all: $(OBJ)
+	$(CC) $(OBJ) -o $(NAME)
