@@ -16,7 +16,7 @@ int main(void)
     ht = hash_table_create(size);
     printf("%p\n", (void *)ht);
 
-	for (i = 0; i < size; i++)
+	for (i = 0; i < 20; i++)
 	{
 		printf("\t%lu %p\n", i,(void *)ht->array[(int)i]);
 	}		
