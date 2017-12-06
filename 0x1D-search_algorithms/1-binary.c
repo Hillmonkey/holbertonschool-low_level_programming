@@ -8,7 +8,6 @@
 void print_array(int *array, size_t size)
 {
 	size_t i;
-	char first_pass = TRUE;
 
 	printf("Searching in array: ");
 	for (i = 0; i < size; i++)
@@ -16,11 +15,8 @@ void print_array(int *array, size_t size)
 		printf("%d", array[i]);
 		if (i == size - 1)
 			printf("\n");
-		else if (first_pass == FALSE)
-			printf(", ");
 		else
-			printf(" ");
-		first_pass = FALSE;
+			printf(", ");
 	}
 }
 
@@ -39,7 +35,7 @@ int binary_search(int *array, size_t size, int value)
 	print_array(array, size);
 	mid = size / 2;
 
-	if (size < 1)
+	if (size < 1 || array == NULL)
 		return (-1);
 	else if (size == 1)
 	{
@@ -63,4 +59,5 @@ int binary_search(int *array, size_t size, int value)
 			binary_search(&(array[mid + 1]), size - mid - 1, value);
 		}
 	}
+	return (666);
 }
