@@ -40,7 +40,10 @@ int binary_search(int *array, size_t size, int value)
 	else if (size == 1)
 	{
 		if (array[0] == value)
-			return (0);
+		{
+			printf("=== size->1 and a match!!! ====\n");
+			return (0); /* how to return correct position??? */
+		}
 		else
 			return (-1);
 	}
@@ -48,16 +51,28 @@ int binary_search(int *array, size_t size, int value)
 	{
 		if (array[mid] == value)
 		{
-			printf("====A=====\n");
+			//printf("==== a match!!! =====\n");
 			return (mid);
 		}
 		if (array[mid] > value)
+		{
+			//printf("=== go low =======\n\t");
+			//print_array(array, mid);
 			binary_search(array, mid, value);
+			return (mid);
+		}
 		if (array[mid] < value)
 		{
-			print_array(&(array[mid + 1]), size - mid - 1);
+			//printf("==== go high =======\n\t");
+			//print_array(&(array[mid + 1]), size - mid - 1);
 			binary_search(&(array[mid + 1]), size - mid - 1, value);
+			return (mid);
+		}
+		else
+		{
+			//printf("not low, mid, or high, what the fuck!!!\n");
+			//printf("\t%d != %d, mid = %lu\n", array[mid], value, (unsigned long)mid);
+			return (777);
 		}
 	}
-	return (666);
 }
