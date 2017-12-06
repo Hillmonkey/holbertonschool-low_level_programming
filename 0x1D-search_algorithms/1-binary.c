@@ -21,7 +21,28 @@ void print_array(int *array, size_t size)
 }
 
 /**
- * binary_search - search recursively in sorted list
+ * print_subarray - print a portion of the array
+ * @array: an array of ints
+ * @lo: lo index of subarray
+ * @hi: hi index of subarray
+ **/
+void print_subarray(int *array, size_t lo, size_t hi)
+{
+	size_t i;
+
+	printf("Searching in array: ");
+	for (i = lo; i <= hi; i++)
+	{
+		printf("%d", array[i]);
+		if (i == hi)
+			printf("\n");
+		else
+			printf(", ");
+	}
+}
+
+/**
+ * binary_search - helper function for recursively searching sorted list
  * @array: array of ints
  * @size: size of array
  * @value: value to match in search
@@ -30,49 +51,54 @@ void print_array(int *array, size_t size)
 
 int binary_search(int *array, size_t size, int value)
 {
-	size_t mid;
-
 	print_array(array, size);
-	mid = size / 2;
-
-	if (size < 1 || array == NULL)
+	if (array == NULL)
 		return (-1);
-	else if (size == 1)
+	return (recurs_search(array, (size_t)0, size - 1, value));
+}
+
+
+/**
+ * recurs_search - do the recursive part of the binary search
+ * @array: array of ints
+ * @lo: lo index of subarray
+ * @hi: hi index of subarray
+ * @value: value to match in search
+ * Return: index of matching array element, or -1 if no match
+**/
+
+int recurs_search(int *array, size_t lo, size_t hi, int value)
+{
+	size_t guess, tmp;
+	int ret;
+
+	guess = (lo + hi + 1) / 2;
+	tmp = (lo + hi) / 2;
+
+	if (lo > hi)
+		return (-1);
+	else if (lo == hi)
 	{
-		if (array[0] == value)
-		{
-			printf("=== size->1 and a match!!! ====\n");
-			return (0); /* how to return correct position??? */
-		}
+		print_subarray(array, lo, hi);
+		if (array[lo] == value)
+			return (lo);
 		else
 			return (-1);
 	}
-	else  /* size > 1 */
+	else /* lo < hi */
 	{
-		if (array[mid] == value)
+		if (array[guess] == value && guess == tmp) /* odd # of elements */
+			return (guess);
+		if (value >= array[guess]) /* go hi */
 		{
-			//printf("==== a match!!! =====\n");
-			return (mid);
+			print_subarray(array, guess, hi);
+			ret = (recurs_search(array, guess + 1, hi, value));
 		}
-		if (array[mid] > value)
+		else  /* value < array[guess] */
 		{
-			//printf("=== go low =======\n\t");
-			//print_array(array, mid);
-			binary_search(array, mid, value);
-			return (mid);
-		}
-		if (array[mid] < value)
-		{
-			//printf("==== go high =======\n\t");
-			//print_array(&(array[mid + 1]), size - mid - 1);
-			binary_search(&(array[mid + 1]), size - mid - 1, value);
-			return (mid);
-		}
-		else
-		{
-			//printf("not low, mid, or high, what the fuck!!!\n");
-			//printf("\t%d != %d, mid = %lu\n", array[mid], value, (unsigned long)mid);
-			return (777);
+			print_subarray(array, lo, guess - 1);
+			ret = (recurs_search(array, lo, guess - 1, value));
 		}
 	}
+	return (ret);
 }
