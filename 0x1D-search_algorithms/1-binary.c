@@ -1,26 +1,6 @@
 #include "search_algos.h"
 
 /**
- * print_array - print array of ints
- * @array: array of ints
- * @size: size of array
- **/
-void print_array(int *array, size_t size)
-{
-	size_t i;
-
-	printf("Searching in array: ");
-	for (i = 0; i < size; i++)
-	{
-		printf("%d", array[i]);
-		if (i == size - 1)
-			printf("\n");
-		else
-			printf(", ");
-	}
-}
-
-/**
  * print_subarray - print a portion of the array
  * @array: an array of ints
  * @lo: lo index of subarray
@@ -51,9 +31,9 @@ void print_subarray(int *array, size_t lo, size_t hi)
 
 int binary_search(int *array, size_t size, int value)
 {
-	print_array(array, size);
-	if (array == NULL)
+	if (array == NULL || size == 0)
 		return (-1);
+	print_subarray(array, 0, size - 1);
 	return (recurs_search(array, (size_t)0, size - 1, value));
 }
 
