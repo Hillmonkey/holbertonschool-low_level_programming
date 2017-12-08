@@ -13,5 +13,6 @@ int binary_search(int *array, size_t size, int value);
 int recurs_search(int *array, size_t lo, size_t hi, int value);
 void print_subarray(int *array, size_t lo, size_t hi);
 int jump_search(int *array, size_t size, int value);
+int interpolation_search(int *array, size_t size, int value);
 
 #endif /* SEARCH_ALGOS */
