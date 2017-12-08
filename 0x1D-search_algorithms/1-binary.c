@@ -31,7 +31,7 @@ void print_subarray(int *array, size_t lo, size_t hi)
 
 int binary_search(int *array, size_t size, int value)
 {
-	if (array == NULL || size == 0)
+	if (array == NULL || size == 0 || value < array[0])
 		return (-1);
 	print_subarray(array, 0, size - 1);
 	return (recurs_search(array, (size_t)0, size - 1, value));
