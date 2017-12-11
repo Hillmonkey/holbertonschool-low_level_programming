@@ -33,7 +33,6 @@ int binary_search(int *array, size_t size, int value)
 {
 	if (array == NULL || size == 0 || value < array[0])
 		return (-1);
-	print_subarray(array, 0, size - 1);
 	return (recurs_search(array, (size_t)0, size - 1, value));
 }
 
@@ -49,36 +48,20 @@ int binary_search(int *array, size_t size, int value)
 
 int recurs_search(int *array, size_t lo, size_t hi, int value)
 {
-	size_t guess, tmp;
+	size_t guess;
 	int ret;
 
-	guess = (lo + hi + 1) / 2;
-	tmp = (lo + hi) / 2;
+	guess = (lo + hi) / 2;
 
-	if (lo > hi)
+	print_subarray(array, lo, hi);
+
+	if (value == array[guess])
+		return (guess);
+	if (lo == hi)
 		return (-1);
-	else if (lo == hi)
-	{
-		print_subarray(array, lo, hi);
-		if (array[lo] == value)
-			return (lo);
-		else
-			return (-1);
-	}
-	else /* lo < hi */
-	{
-		if (array[guess] == value && guess == tmp) /* odd # of elements */
-			return (guess);
-		if (value >= array[guess]) /* go hi */
-		{
-			print_subarray(array, guess, hi);
-			ret = (recurs_search(array, guess + 1, hi, value));
-		}
-		else  /* value < array[guess] */
-		{
-			print_subarray(array, lo, guess - 1);
-			ret = (recurs_search(array, lo, guess - 1, value));
-		}
-	}
+	if (value > array[guess]) /* go hi */
+		ret = (recurs_search(array, guess + 1, hi, value));
+	else /* go lo */
+		ret = (recurs_search(array, lo, guess, value));
 	return (ret);
 }
