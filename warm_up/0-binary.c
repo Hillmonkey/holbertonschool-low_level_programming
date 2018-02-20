@@ -32,10 +32,16 @@ void print_array(int *array, size_t lo, size_t hi)
  */
 int binary_search(int *array, size_t size, int value)
 {
-	size_t lo = 0, hi = size - 1, mid = size / 2, bump;
-	while (lo < hi)
+	size_t lo = 0, hi, mid = size / 2, bump;
+
+	if (size == 0)
+		return (-1);
+	hi = size - 1;
+	while (lo <= hi)
 	{
 		print_array(array, lo, hi);
+		if (lo == hi)
+			return (-1);
 		bump = 0;
 		if (array[mid] == value)
 			return (mid);
