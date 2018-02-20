@@ -13,6 +13,7 @@
 void print_array(int *array, size_t lo, size_t hi)
 {
 	size_t walker;
+
 	printf("Searching in array: ");
 	for (walker = lo; walker <= hi; walker++)
 	{
@@ -22,7 +23,7 @@ void print_array(int *array, size_t lo, size_t hi)
 	}
 	printf("\n");
 }
-	
+
 /**
  * binary_search - returns index of value in sorted array
  * @array: array of ints of size size
@@ -51,7 +52,7 @@ int binary_search(int *array, size_t size, int value)
 			if ((hi + lo) % 2)
 				bump = 1;
 			mid = ((hi + lo) / 2) + bump;
-			
+
 		}
 		else
 		{
@@ -60,7 +61,7 @@ int binary_search(int *array, size_t size, int value)
 				bump = 1;
 			mid = ((hi + lo) / 2) + bump;
 		}
-	}	
-		
+	}
+
 	return (-1);
 }
