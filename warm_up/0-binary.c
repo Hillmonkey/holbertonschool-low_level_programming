@@ -18,7 +18,7 @@ void print_array(int *array, size_t lo, size_t hi)
 	{
 		printf("%d", array[walker]);
 		if (walker != hi)
-			printf(",");
+			printf(", ");
 	}
 	printf("\n");
 }
