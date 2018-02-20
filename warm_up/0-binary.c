@@ -51,20 +51,12 @@ int binary_search(int *array, size_t size, int value)
 		if (array[mid] > value)
 		{
 			hi = mid;
-			/*
-			if ((hi + lo) % 2)
-				bump = 1;
-			*/
 			mid = ((hi + lo) / 2) + bump;
 
 		}
 		else
 		{
 			lo = mid + 1;
-			/*
-			if ((hi + lo) % 2)
-				bump = 1;
-			*/
 			mid = ((hi + lo) / 2) + bump;
 		}
 	}
